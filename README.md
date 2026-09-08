@@ -18,7 +18,7 @@ biney-brain empaqueta ese criterio como router: le cuentas el caso, y te dice si
 
 No resuelve todo. No te hace mas inteligente. Solo evita que reinventes la rueda con cada decision que ya alguien (yo, en este caso) la cago resolviendo antes que tu.
 
-Si `ponytail` es el senior que no escribe de mas en el codigo, biney-brain es el pata que no se complica de mas usando la IA: si el resultado te sale generico (un diseno que se ve hecho por IA, codigo sin pensar en seguridad), no te quedas peleando el prompt, buscas en TikTok/YouTube si ya existe una skill hecha para eso; si la tarea es grande, la cortas en pedazos chicos con un `.md` de contexto antes de que la sesion se te desarme sola.
+Si `ponytail` es el senior que no escribe de mas en el codigo, biney-brain es el pata que no se complica de mas usando la IA: si el resultado te sale generico (un design que se ve hecho por IA, codigo sin pensar en seguridad), no te quedas peleando el prompt, buscas en TikTok/YouTube si ya existe una skill hecha para eso; si la tarea es grande, la cortas en pedazos chicos con un `.md` de contexto antes de que la sesion se te desarme sola.
 
 ## Antes / despues
 
@@ -50,7 +50,13 @@ Un router (`biney-brain`) mas un dominio por tipo de decision:
 
 Cada uno es un `SKILL.md`, criterio concreto, no pura teoria. Si no te sirve un dominio, lo borras. Si te falta uno, se agrega igual que los demas.
 
-El router se carga solo al abrir una sesion nueva (hook `SessionStart`), asi que Claude ya sabe que existe biney-brain-* desde el arranque, no depende de que lo detecte por su cuenta a mitad de la conversacion. Los dominios especificos (`biney-brain-stack`, etc.) se invocan cuando el caso calza, igual que cualquier otro skill.
+### No hace falta escribir `/biney-brain` para que el criterio se aplique
+
+El router se carga solo al abrir una sesion nueva: un hook `SessionStart` (`hooks/session-start.sh`) inyecta el contenido completo de `biney-brain/SKILL.md` en el contexto antes de que escribas nada. Eso significa que **Claude ya tiene el criterio cargado desde el primer mensaje**, sin depender de que tu o el lo detecten a mitad de conversacion.
+
+En la practica: le pegas un prompt maestro `.md` directo, sin poner `/biney-brain` adelante, y Claude igual evalua si el caso califica (Paso 1 y 2 del router) y decide solo si invoca `biney-brain-stack`, `biney-brain-scope`, etc. Es el mismo mecanismo por el que cualquier skill se auto-invoca cuando su descripcion matchea el caso, no algo exclusivo de biney-brain.
+
+`/biney-brain <situacion>` sigue existiendo, pero es para forzar la pregunta de forma explicita ("dime a que dominio cae esto") cuando quieres la respuesta del router de forma directa, no un requisito para que el criterio pegue.
 
 ## Instalar
 
