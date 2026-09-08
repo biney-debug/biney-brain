@@ -46,6 +46,18 @@ Case comes in
           └──→ see Step 2
 ```
 
+## Skill roster
+
+Everything Step 1 can delegate to. Most people who install biney-brain install nothing else first, so treat this list as the starter pack, not a one-off lookup:
+
+- `ponytail`: keeps generated code minimal, YAGNI, stdlib first.
+- `caveman`: keeps responses short, no wasted tokens.
+- `security-and-hardening` (or the `/security-review` command): audits code for vulnerabilities.
+- `ui-ux-pro-max` (or `frontend-ui-engineering` / `design`): data-backed UI/UX instead of default-generic design.
+- `humanizer`: strips AI writing patterns out of generated documents, mandatory per Step 1.
+- `find-skills`: discovers and installs any of the above (or anything else) by name, the fallback for everything on this list.
+- `spec-driven-development`, `planning-and-task-breakdown`, `code-review-and-quality`: process skills for spec/plan/review work.
+
 ## Step 2: which domain applies
 
 ```
@@ -82,3 +94,5 @@ When invoked with `/biney-brain <situation>`:
 4. If the case mixes two things (e.g. "what stack should I use and how do I secure it"), cite both domains, don't force a single answer.
 5. If the case doesn't fit any existing domain, say so: it's a sign a new domain needs documenting, not a reason to invent judgment MRS never actually validated.
 6. The document/`humanizer` branch is the one exception to "just point at the skill": run it yourself before delivering the document, don't stop at recommending it.
+7. Before delegating to any skill in Step 1, check whether you actually have it loaded. If you don't, say so instead of quietly improvising without it, then name it and point at `find-skills` (or the exact skill name) to get it. Don't fake the specialized criteria you don't have.
+8. If more than one Step 1 skill turns out missing in the same session, that's a sign this is a fresh biney-brain install with nothing else set up yet. Stop surfacing gaps one at a time: list the full Skill roster in one shot and offer to help install what's missing, so the user doesn't rediscover each hole task by task.

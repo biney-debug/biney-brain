@@ -18,6 +18,8 @@ biney-brain packages that judgment as a router: you describe the situation, and 
 
 It doesn't solve everything. It doesn't make you smarter. It just keeps you from reinventing the wheel on every decision someone (me, in this case) already screwed up before you did.
 
+Most people install biney-brain first and nothing else. It knows that: if it tries to hand a case off to `ponytail`, `security-and-hardening`, `humanizer`, or any other skill it depends on and you don't have it, it says so instead of faking the criteria, and once a couple come up missing it just lists the whole starter pack in one go instead of making you find each gap task by task.
+
 If `ponytail` is the senior who doesn't write more code than needed, biney-brain is the guy who doesn't overthink how he uses the AI: if the output comes out generic (a design that screams "made by AI," code with no security thought behind it), you don't keep fighting the prompt, you check `find-skills` (or TikTok/YouTube if that turns up nothing) for a skill someone already built for exactly that; if the task is big, you cut it into small pieces with a context `.md` before the session falls apart on its own.
 
 ## Before / after
