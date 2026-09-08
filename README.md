@@ -45,7 +45,9 @@ Un router (`biney-brain`) mas un dominio por tipo de decision:
 - `biney-brain-git`: como commitear y ramificar, incluso trabajando solo
 - `biney-brain-delegate`: cuanto le sueltas la mano a la IA y cuando intervienes tu
 
-Cada uno es un `SKILL.md`, sin magia ni hooks corriendo en segundo plano. Si no te sirve un dominio, lo borras. Si te falta uno, se agrega igual que los demas: un archivo de texto con criterio concreto, no pura teoria.
+Cada uno es un `SKILL.md`, criterio concreto, no pura teoria. Si no te sirve un dominio, lo borras. Si te falta uno, se agrega igual que los demas.
+
+El router se carga solo al abrir una sesion nueva (hook `SessionStart`), asi que Claude ya sabe que existe biney-brain-* desde el arranque, no depende de que lo detecte por su cuenta a mitad de la conversacion. Los dominios especificos (`biney-brain-stack`, etc.) se invocan cuando el caso calza, igual que cualquier otro skill.
 
 ## Instalar
 
