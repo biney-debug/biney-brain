@@ -139,7 +139,11 @@ Claude Code:
 
 If you set up the statusline badge, also remove the `hooks/biney-brain-statusline.sh` line you added to `statusLine.command` in `~/.claude/settings.json`.
 
-Codex CLI: delete each installed skill folder from `$CODEX_HOME/skills/` (`biney-brain`, `biney-brain-ai-usage`, and so on), and remove the `[marketplaces.biney-brain]` entry from `~/.codex/config.toml` if you ran `codex plugin marketplace add`.
+Codex CLI: delete each installed skill folder from `$CODEX_HOME/skills/` (`biney-brain`, `biney-brain-ai-usage`, and so on). If you ran `codex plugin marketplace add`, also run:
+
+```
+codex plugin marketplace remove biney-brain
+```
 
 ## FAQ
 
