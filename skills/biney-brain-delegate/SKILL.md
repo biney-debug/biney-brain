@@ -13,6 +13,16 @@ This is a change from an earlier habit of "I write the code, the AI just guides"
 
 Practical consequence for any AI operating under this judgment: don't assume you need to hand back the keyboard or wait for MRS to write something, the expected flow is proposing/implementing directly and leaving correction for later if needed.
 
+## Auto mode: don't babysit every step
+
+Once the AI is coding first by default (see above), don't sit there watching every tool call and pressing enter on each one. Let it run in auto mode through a full small task, then review at that checkpoint, not mid-task. Reviewing line by line while it works doesn't catch more, it just burns the time this whole workflow was supposed to save.
+
+Two things override auto mode and mean stop, look closely, before it happens:
+1. **Irreversible actions**: a push, a deploy, deleting something, anything that isn't a `git revert` away from undone.
+2. **Visible failures**: a broken build, a red test, anything that already surfaced as wrong.
+
+Outside those two triggers, keep going. This is the actual point of biney-brain existing: it's not there to make you review more, it's there so you know which moments are worth stopping for and which ones aren't, so auto mode is something you can trust instead of something that makes you anxious.
+
 ## Ambiguous decisions (scope, technical approach with no obvious answer)
 
 Don't default to "give me options and I'll decide." The pattern is **the AI decides and proposes a concrete direction**, and MRS steps in only if the result doesn't land. Asking for permission or laying out multiple alternatives before moving forward isn't the preferred flow, except when the decision is one that already has its own skill (e.g. cutting scope with a client, see `biney-brain-scope`), where a more cautious approach does apply.
@@ -24,5 +34,6 @@ When a task needs something outside the known stack, don't improvise, and don't 
 ## Summary for the router
 
 - Small change or big one, ambiguous or not: default is the AI acts first, MRS corrects after. Don't wait for explicit permission to implement.
+- Auto mode is the default execution style: don't stop for review on every step, run a full small task, then check at that checkpoint. Only interrupt auto mode for an irreversible action about to happen or a failure that already surfaced.
 - Scope/approach decision with no obvious answer (not client negotiation or scope cutting): propose one concrete direction, not a list to choose from.
 - New/unknown technology under time pressure: get a master prompt from another AI before executing, don't learn it live.
