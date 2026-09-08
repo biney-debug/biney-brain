@@ -6,16 +6,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/biney-brain-flag.sh\"",
-            "timeout": 5
-          }
-        ]
-      },
-      {
-        "matcher": "startup|resume|clear|compact",
-        "hooks": [
-          {
-            "type": "command",
             "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh\"",
             "timeout": 5,
             "statusMessage": "Loading biney-brain criteria..."

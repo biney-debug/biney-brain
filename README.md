@@ -91,7 +91,7 @@ Once installed, the skills auto-invoke the same way they do on Claude Code, matc
 
 ## Statusline badge (optional, for whoever installs it)
 
-When you install the plugin, a `SessionStart` hook turns on the flag that marks biney-brain as active on its own, nothing to touch there. To also get `[BINEY-BRAIN]` showing in your status bar, don't edit anything by hand: copy this prompt and paste it into Claude Code, it'll handle it:
+To get `[BINEY-BRAIN]` showing in your status bar, don't edit anything by hand: copy this prompt and paste it into Claude Code, it'll handle it:
 
 ```
 I have the biney-brain plugin installed. Set up its statusline badge:
