@@ -38,3 +38,4 @@ Architecture bends to whatever needs to be shown or measured for the research (e
 - Hackathon/MVP context → known stack always; anything new gets isolated via another AI's master prompt + execution in Claude Code (see also `biney-brain-delegate`).
 - Client/freelance context → textbook rigor, document decisions, think about whoever maintains it next.
 - Personal thesis context → architecture serves what needs to be demonstrated/measured, not the abstract standard.
+- No exam, hackathon jury, client, or thesis committee behind it at all (a portfolio piece, a tool for friends, a private experiment)? That's `biney-brain-personal`, not this domain.

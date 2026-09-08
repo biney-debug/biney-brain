@@ -44,6 +44,7 @@ No 3am argument about hexagonal architecture. No Kafka in a 30-hour MVP.
 A router (`biney-brain`) plus one domain per type of decision:
 
 - `biney-brain-stack`: what technology to use depending on context (exam, hackathon, real client, personal research project)
+- `biney-brain-personal`: stack, security tier, and how much polish matters for a project with no exam/hackathon/client/thesis behind it, a portfolio piece or a tool for friends
 - `biney-brain-scope`: what to cut, postpone, or negotiate when time runs short
 - `biney-brain-security`: how much security effort to put in and when it's not negotiable
 - `biney-brain-tests`: when to write tests, when to test by hand, when to trust an AI audit

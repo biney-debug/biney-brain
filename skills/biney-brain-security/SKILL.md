@@ -31,3 +31,4 @@ No line-by-line eyeball review. The pattern is asking the AI for a separate, exp
 - If the case is "this is actually shipping" (thesis or production) → max level: rate limiting + preventing data leaks are non-negotiable, run `/security-review` before closing it out.
 - If the case is exam/hackathon with no real data → basic security (validation, exception handling) via AI audit, but secrets can be dummy and rate limiting isn't required.
 - Any security review gets delegated to a dedicated AI pass (`security-and-hardening` / `/security-review`), never manual line-by-line reading.
+- Personal project with no exam/hackathon/client/thesis behind it? `biney-brain-personal` sets the tier (relaxed by default, jumps to this domain's production tier the moment it touches someone else's real data).

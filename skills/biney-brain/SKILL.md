@@ -66,6 +66,10 @@ Context judgment
     ├── Which technology/architecture to use depending on context (exam,
     │   hackathon, freelance, thesis)? ────────────────→ `biney-brain-stack`
     │
+    ├── Personal project, no exam/hackathon/client/thesis behind it
+    │   (a portfolio piece, a tool for friends, a private experiment)?
+    │   Stack, security tier, or how much polish it needs? ─→ `biney-brain-personal`
+    │
     ├── What to cut, postpone, or negotiate when
     │   scope doesn't fit the time available? ─────────→ `biney-brain-scope`
     │
