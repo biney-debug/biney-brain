@@ -1,17 +1,19 @@
 ---
 name: biney-brain-ai-usage
-description: Como MRS usa la IA como herramienta, sin trabarse por perfeccionismo antes de promptear, y sin dejar que la sesion se degrade por historial largo. Usar cuando el usuario no sepa ni como pedirle algo a la IA, o cuando una sesion se este poniendo larga y compleja.
+description: Como MRS usa la IA como herramienta, sin conformarse con resultados genericos y sin dejar que la sesion se degrade por historial largo. Usar cuando lo que la IA devuelve salga generico/mediocre (diseno, seguridad, codigo optimizado), o cuando una sesion se este poniendo larga y compleja.
 ---
 
 # Usar la IA sin complicarse la vida
 
 Esto no es criterio de producto, es criterio de como trabajar con la herramienta misma. Es el dominio mas parecido a ponytail de todos: la idea es no perder tiempo en el paso previo a actuar.
 
-## Cuando no sabes ni que pedirle a la IA
+## Cuando el resultado te sale generico
 
-Si el bloqueo es que no sabes ni como formular el pedido (no que la IA no pueda resolverlo), el primer paso no es intentar prompts a ciegas ni quedarte pensando la formulacion perfecta. Se busca un tutorial corto (TikTok, YouTube, lo que sea rapido) que explique el problema o la funcionalidad lo suficiente como para poder despues pedirsela bien a la IA. El tutorial no es para aprenderlo a fondo tu mismo, es para tener el vocabulario y el approach minimo que te permita promptear con precision.
+El problema no es no saber que pedir, es que lo que la IA devuelve por default es generico: un diseno de landing que se ve "hecho por IA", codigo que funciona pero sin pensar en seguridad ni optimizacion, lo que sea. Ahi el error es quedarte peleando con el prompt tratando de corregirlo a mano, prompt tras prompt, hasta que salga bien.
 
-El bloqueo real que esto evita es el perfeccionismo: quedarte dando vueltas buscando "la forma ideal" de pedirlo antes de moverte. Mismo espiritu que ponytail (la primera solucion que funciona es la correcta), aplicado al momento de formular el pedido en vez de al codigo. No te compliques buscando el prompt perfecto, consegui el minimo contexto y tira el prompt.
+En vez de eso: se busca en TikTok o YouTube si ya existe una skill hecha para exactamente ese problema (una skill de diseno de landings, una skill de hardening de codigo, etc.) y se instala esa, en vez de intentar lograr lo mismo a punta de prompts genericos. Alguien ya empaqueto el criterio especializado que te falta, no hace falta reinventarlo a mano cada vez. Es la misma logica de este mismo repo: biney-brain existe porque buscar "una skill para X" es mas rapido que tratar de explicarle todo a la IA de cero.
+
+El bloqueo real que esto evita es el perfeccionismo de pelear con el prompt: si el resultado sigue saliendo generico despues de un par de intentos, se corta ahi y se busca la skill que ya lo resuelve, no se sigue insistiendo a mano.
 
 ## Evitar que la sesion se autocomprima
 
@@ -26,5 +28,5 @@ Consecuencia practica: si una tarea se ve grande, no se arranca de una, se corta
 
 ## Resumen para el router
 
-- No sabes ni que pedirle a la IA → buscate un tutorial corto primero, no te compliques buscando el prompt perfecto.
+- El resultado sale generico (diseno, seguridad, codigo) → buscate una skill ya hecha en TikTok/YouTube antes de seguir peleando con el prompt.
 - Sesion larga o tarea grande → dividir en tareas chicas, y usar un `.md` de contexto (persistente en el repo + resumenes intermedios) en vez de confiar en que el historial aguante.

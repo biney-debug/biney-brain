@@ -18,7 +18,7 @@ biney-brain empaqueta ese criterio como router: le cuentas el caso, y te dice si
 
 No resuelve todo. No te hace mas inteligente. Solo evita que reinventes la rueda con cada decision que ya alguien (yo, en este caso) la cago resolviendo antes que tu.
 
-Si `ponytail` es el senior que no escribe de mas en el codigo, biney-brain es el pata que no se complica de mas usando la IA: si no sabes ni como pedirle algo, busca un tutorial corto antes de trabarte pensando el prompt perfecto; si la tarea es grande, la cortas en pedazos chicos con un `.md` de contexto antes de que la sesion se te desarme sola.
+Si `ponytail` es el senior que no escribe de mas en el codigo, biney-brain es el pata que no se complica de mas usando la IA: si el resultado te sale generico (un diseno que se ve hecho por IA, codigo sin pensar en seguridad), no te quedas peleando el prompt, buscas en TikTok/YouTube si ya existe una skill hecha para eso; si la tarea es grande, la cortas en pedazos chicos con un `.md` de contexto antes de que la sesion se te desarme sola.
 
 ## Antes / despues
 
@@ -46,7 +46,7 @@ Un router (`biney-brain`) mas un dominio por tipo de decision:
 - `biney-brain-tests`: cuando escribir tests, cuando probar a mano, cuando confiar en que la IA audite
 - `biney-brain-git`: como commitear y ramificar, incluso trabajando solo
 - `biney-brain-delegate`: cuanto le sueltas la mano a la IA y cuando intervienes tu
-- `biney-brain-ai-usage`: como no trabarte antes de promptear, y como evitar que la sesion se autocomprima
+- `biney-brain-ai-usage`: que hacer cuando el resultado sale generico (buscar la skill que ya lo resuelve), y como evitar que la sesion se autocomprima
 
 Cada uno es un `SKILL.md`, criterio concreto, no pura teoria. Si no te sirve un dominio, lo borras. Si te falta uno, se agrega igual que los demas.
 
@@ -68,13 +68,15 @@ Si ya esta en GitHub:
 
 ## Badge en la statusline (opcional, para el pata que lo instala)
 
-Al instalar el plugin, un hook `SessionStart` prende solo el flag que indica que biney-brain esta activo, no hace falta tocar nada para eso. Lo unico manual es decirle a tu terminal que dibuje el badge:
+Al instalar el plugin, un hook `SessionStart` prende solo el flag que indica que biney-brain esta activo, no hace falta tocar nada para eso. Para que ademas aparezca `[BINEY-BRAIN]` en tu barra de estado, no toques nada a mano: copia este prompt y pegaselo a Claude Code, el se encarga:
 
-1. Copia `hooks/biney-brain-statusline.sh` a tu carpeta `~/.claude/hooks/`.
-2. Agrega esto a tu `statusLine.command` en `~/.claude/settings.json` (encadenado con `;` a lo que ya tengas, mismo patron que usan `caveman`/`ponytail`/`agent-skills` si los tienes):
-   ```
-   bash "~/.claude/hooks/biney-brain-statusline.sh"
-   ```
+```
+Tengo instalado el plugin biney-brain. Configura el badge de su statusline:
+copia el archivo hooks/biney-brain-statusline.sh del plugin instalado a
+~/.claude/hooks/, y agrega ese script a mi statusLine.command en
+~/.claude/settings.json (encadenado con ; a lo que ya tenga configurado,
+sin borrar nada existente). Avisame cuando este listo.
+```
 
 Con eso, apenas abras una sesion nueva vas a ver `[BINEY-BRAIN]` en la barra de estado. Es solo cosmetico: indica que el plugin esta disponible, no cambia el comportamiento de ninguna respuesta.
 
