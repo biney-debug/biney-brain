@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "biney-brain",
+  "description": "Que haria MRS en esta situacion? Router de criterio personal para Claude Code.",
+  "owner": {
+    "name": "MRS (biney-debug)",
+    "url": "https://github.com/biney-debug"
+  },
+  "plugins": [
+    {
+      "name": "biney-brain",
+      "description": "Dado un caso, decide si delegar a un skill existente (ponytail, caveman, security-review, etc.) o aplicar criterio propio.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
