@@ -31,6 +31,13 @@ Case comes in
     │     └──→ delegate to `ui-ux-pro-max` (data-backed palettes/typography/styles)
     │           or `frontend-ui-engineering` / the `design` skill if that's not installed
     │
+    ├── Generating a document, report, README, or any other written
+    │   deliverable (not code)?
+    │     └──→ mandatory: run it through `humanizer` before handing it over,
+    │           even if nothing about it seemed off. If `humanizer` isn't
+    │           installed, say so and recommend installing it (`find-skills`)
+    │           instead of delivering the draft as-is.
+    │
     ├── Spec/plan/review of a code process (not a business decision)?
     │     └──→ delegate to `spec-driven-development`, `planning-and-task-breakdown`,
     │           `code-review-and-quality` as appropriate
@@ -74,3 +81,4 @@ When invoked with `/biney-brain <situation>`:
 3. If a domain applies, summarize that SKILL.md's concrete judgment in 2-4 lines (don't repeat the whole file), and say which domain it came from.
 4. If the case mixes two things (e.g. "what stack should I use and how do I secure it"), cite both domains, don't force a single answer.
 5. If the case doesn't fit any existing domain, say so: it's a sign a new domain needs documenting, not a reason to invent judgment MRS never actually validated.
+6. The document/`humanizer` branch is the one exception to "just point at the skill": run it yourself before delivering the document, don't stop at recommending it.

@@ -14,7 +14,7 @@ Tired of being the guy who can't get real value out of Claude Code? Installed fo
 
 Relax. Here's another screwup, but with more mileage: exams solved by repeating the pattern that already worked, hackathons done in a rush, one real client who almost made me throw the whole thing out the window, and a thesis that taught me not to confuse "well made" with "what you actually need to show." That's where this judgment came from, the kind I don't have to rebuild from scratch every time.
 
-biney-brain packages that judgment as a router: you describe the situation, and it tells you whether an installed skill already solves it (`ponytail` so you don't write more code than needed, `caveman` so you don't say more than needed, `security-and-hardening` so you don't leak data, `ui-ux-pro-max` so it doesn't look like a school project) or whether it's a context call that no code skill covers, in which case it applies judgment that's already been chewed on.
+biney-brain packages that judgment as a router: you describe the situation, and it tells you whether an installed skill already solves it (`ponytail` so you don't write more code than needed, `caveman` so you don't say more than needed, `security-and-hardening` so you don't leak data, `ui-ux-pro-max` so it doesn't look like a school project, `humanizer` so a document doesn't read like it came out of a chatbot) or whether it's a context call that no code skill covers, in which case it applies judgment that's already been chewed on.
 
 It doesn't solve everything. It doesn't make you smarter. It just keeps you from reinventing the wheel on every decision someone (me, in this case) already screwed up before you did.
 
