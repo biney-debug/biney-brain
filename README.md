@@ -64,13 +64,6 @@ In practice: you paste a master prompt `.md` straight in, no `/biney-brain` in f
 ### Claude Code
 
 ```
-/plugin marketplace add C:\Users\ASUS\proyectos\biney-brain
-/plugin install biney-brain
-```
-
-If it's already on GitHub:
-
-```
 /plugin marketplace add biney-debug/biney-brain
 /plugin install biney-brain
 ```
