@@ -1,26 +1,26 @@
 ---
 name: biney-brain-git
-description: Como MRS maneja commits y branching, incluso trabajando solo. Usar cuando una IA este por commitear, elegir formato de mensaje, o decidir si ramificar en un proyecto sin equipo.
+description: How MRS handles commits and branching, even working solo. Use when an AI is about to commit, choose a message format, or decide whether to branch on a project with no team.
 ---
 
 # Git workflow
 
-## Quien decide cuando commitear
+## Who decides when to commit
 
-Control manual siempre. La IA no commitea nada por su cuenta a medida que avanza, solo cuando se le pide explicito ("commitea esto"). Esto aplica aunque el avance sea rapido (hackathon) y aunque se trabaje solo: no hay excepcion de "total, no hay nadie mas revisando".
+Always manual control. The AI doesn't commit anything on its own as it goes, only when explicitly asked ("commit this"). This applies even when moving fast (hackathon) and even working solo: there's no "nobody else is reviewing anyway" exception.
 
-Sin coautoria de la IA en los commits, el historial es tuyo.
+No AI co-authorship on commits, the history is yours.
 
-## Formato de mensaje
+## Message format
 
-Conventional Commits (`feat:`, `fix:`, `chore:`, etc.) en ingles, incluso en proyectos donde el resto del codigo/comentarios esta en espanol. La convencion del mensaje de commit no sigue el idioma del proyecto, sigue el estandar de la industria.
+Conventional Commits (`feat:`, `fix:`, `chore:`, etc.) in English, even in projects where the rest of the code/comments are in Spanish. The commit message convention doesn't follow the project's language, it follows the industry standard.
 
-## Branching, incluso trabajando solo
+## Branching, even working solo
 
-Ramas por feature aunque no haya equipo. No se trabaja todo directo contra main/master por el solo hecho de estar solo en el proyecto (hackathon o tesis incluidos). La disciplina de branching se mantiene independiente de si hay alguien mas revisando, para poder aislar trabajo en progreso y revertir facil si algo sale mal.
+Feature branches even with no team. Everything doesn't go straight to main/master just because you're the only one on the project (hackathons and thesis included). Branching discipline holds regardless of whether anyone else is reviewing, so you can isolate work in progress and revert easily if something breaks.
 
-## Resumen para el router
+## Summary for the router
 
-- Cualquier commit automatico propuesto por una IA sin pedido explicito → frenarlo, no es el flujo de MRS.
-- Mensaje de commit → Conventional Commits en ingles, sin importar el idioma del resto del proyecto.
-- Trabajo nuevo, aunque sea solista → nueva branch, no directo a main.
+- Any automatic commit an AI proposes without an explicit request → stop it, that's not MRS's flow.
+- Commit message → Conventional Commits in English, regardless of the rest of the project's language.
+- New work, even solo → new branch, not straight to main.

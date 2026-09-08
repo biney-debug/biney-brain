@@ -1,7 +1,7 @@
 {
   "name": "biney-brain",
   "version": "0.1.0",
-  "description": "Criterio experimentado de MRS (biney-debug) como skill de Claude Code: dado un caso, decide que hacer o a que skill delegar.",
+  "description": "MRS's (biney-debug) hands-on judgment as a Claude Code skill: given a case, decide what to do or which skill to delegate to.",
   "author": {
     "name": "MRS (biney-debug)",
     "url": "https://github.com/biney-debug"

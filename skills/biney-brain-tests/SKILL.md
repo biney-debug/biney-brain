@@ -1,37 +1,37 @@
 ---
 name: biney-brain-tests
-description: Cuando MRS escribe tests automatizados, cuando prueba manual, y cuando delega la verificacion a una auditoria de IA. Usar cuando haya que decidir esfuerzo de testing segun contexto (examen, hackathon, proyecto propio, freelance).
+description: When MRS writes automated tests, when to test manually, and when to delegate verification to an AI audit. Use when deciding testing effort by context (exam, hackathon, personal project, freelance).
 ---
 
-# Tests: cuando escribirlos, cuando probar a mano, cuando delegar a la IA
+# Tests: when to write them, when to test by hand, when to delegate to AI
 
-La prioridad de fondo nunca es "cobertura de tests", es que el trabajo cumpla su criterio de exito (rubrica, demo, cliente). Los tests son un medio, no un objetivo en si mismo.
+The underlying priority is never "test coverage," it's that the work meets its actual success criteria (rubric, demo, client). Tests are a means, not a goal in themselves.
 
-## Examen
+## Exam
 
-Prioridad absoluta: que funcione segun la rubrica al 100%. Si el enunciado exige tests como parte de la entrega, no se disena la suite desde cero: se le pregunta a la IA que casos poner, y la verificacion real se hace tomando capturas manuales de que corren. El test automatizado es un entregable de la rubrica, no una herramienta de confianza propia en ese contexto.
+Absolute priority: meeting the rubric 100%. If the prompt requires tests as part of the deliverable, don't design the suite from scratch: ask the AI what cases to cover, and verify for real by taking manual screenshots of them running. The automated test is a rubric deliverable there, not a tool you personally trust.
 
-Si el enunciado no pide tests, no se escriben. El tiempo va integro a que la funcionalidad este completa.
+If the prompt doesn't ask for tests, don't write them. All the time goes to getting the functionality complete.
 
-## Hackathon (MVP, deadline duro)
+## Hackathon (MVP, hard deadline)
 
-Cero tests automatizados. Toda la verificacion es manual, y ademas es oportunista: se revisa a mano lo que se puede segun el tiempo que quede, no hay ronda sistematica de QA. El respaldo principal es el reporte de auditoria que da la IA (ver `biney-brain-security`), no una suite propia.
+Zero automated tests. All verification is manual, and it's opportunistic too: check by hand what you can given the time left, there's no systematic QA pass. The main backstop is the AI's audit report (see `biney-brain-security`), not your own suite.
 
-## Proyecto propio sin deadline externo
+## Personal project with no external deadline
 
-Aca el criterio cambia en dos sentidos respecto al hackathon:
-1. **Si se escriben tests**, pero acotados a lo critico: pagos, auth, calculos, logica donde un bug silencioso es caro o dificil de notar a simple vista. No cobertura total.
-2. **Se prueba manualmente en serio**, no solo cuando sobra tiempo como en hackathon. En un proyecto propio de mas aliento, el testing manual es parte habitual del flujo, no una excepcion oportunista.
+The judgment shifts in two ways compared to a hackathon:
+1. **Tests do get written**, but limited to what's critical: payments, auth, calculations, logic where a silent bug is expensive or hard to spot. Not full coverage.
+2. **Manual testing happens for real**, not just when time allows like in a hackathon. In a longer-running personal project, manual testing is a regular part of the flow, not an opportunistic exception.
 
-El patron de fondo en ambos casos (hackathon y proyecto propio) es el mismo flujo: pedirle a la IA que corra los tests/la auditoria y entregue un reporte, y complementar con revision manual propia cuando el contexto lo permite. La diferencia es cuanto tiempo se invierte en esa revision manual: casi nada en hackathon, en serio en proyecto propio.
+The underlying pattern in both cases (hackathon and personal project) is the same flow: ask the AI to run the tests/audit and hand back a report, and add your own manual review on top when context allows. The difference is how much time goes into that manual review: almost none in a hackathon, real time in a personal project.
 
-## Freelance (cliente externo que puede pedir soporte despues)
+## Freelance (external client who might request support later)
 
-Los tests se agregan **por default**, aunque el cliente no los pida explicitamente en el alcance. La razon es la misma que en `biney-brain-stack` para arquitectura "de libro": alguien tecnico externo va a mantener esto, y un test minimo reduce el riesgo de regresiones que después te terminan pidiendo arreglar sin que estén cotizadas.
+Tests get added **by default**, even if the client doesn't explicitly ask for them in scope. Same reason as textbook architecture in `biney-brain-stack`: someone technical and external is going to maintain this, and a minimal test reduces the risk of regressions you'll later get asked to fix without it being quoted.
 
-## Resumen para el router
+## Summary for the router
 
-- Examen → tests solo si la rubrica los pide, verificacion real = capturas manuales, prioridad total es cumplir rubrica.
-- Hackathon → cero tests automatizados, verificacion manual oportunista + reporte de auditoria de IA.
-- Proyecto propio → tests acotados a logica critica + verificacion manual seria, no oportunista.
-- Freelance → tests por default, no dependen de que el cliente los pida.
+- Exam → tests only if the rubric asks for them, real verification = manual screenshots, total priority is meeting the rubric.
+- Hackathon → zero automated tests, opportunistic manual verification + AI audit report.
+- Personal project → tests limited to critical logic + real manual verification, not opportunistic.
+- Freelance → tests by default, not dependent on the client asking.

@@ -1,37 +1,37 @@
 ---
 name: biney-brain-scope
-description: Como MRS decide que cortar, posponer o negociar cuando el alcance no entra en el tiempo/esfuerzo disponible. Usar cuando haya presion de deadline (hackathon), un pedido de cliente fuera de lo acordado, o un backlog propio mas grande de lo que se puede hacer.
+description: How MRS decides what to cut, postpone, or negotiate when scope doesn't fit the available time/effort. Use when there's deadline pressure (hackathon), a client request outside what was agreed, or a personal backlog bigger than what's feasible.
 ---
 
-# Cortar scope, negociar o posponer
+# Cutting scope, negotiating, or postponing
 
-No hay una sola regla: el criterio cambia segun quien pone el deadline (jurado, cliente, o nadie).
+There's no single rule: the judgment changes depending on who sets the deadline (judges, a client, or nobody).
 
-## Hackathon con deadline y demo/pitch al final
+## Hackathon with a deadline and a demo/pitch at the end
 
-Cuando el alcance planeado no va a entrar, se corta **pulido/UI antes que funcionalidad**. La prioridad es que todo lo prometido funcione, aunque se vea sin pulir, antes que tener menos features pero bien presentadas.
+When the planned scope won't fit, cut **polish/UI before functionality**. The priority is that everything promised works, even if it looks rough, over having fewer features presented well.
 
-Consecuencia practica: si a mitad de hackathon hay que elegir entre "terminar de pulir esta pantalla" o "empezar la siguiente funcionalidad del plan", se empieza la funcionalidad. El pulido visual es lo ultimo que se toca, y solo si sobra tiempo al final.
+In practice: if halfway through a hackathon you have to choose between "finishing the polish on this screen" or "starting the next planned feature," start the feature. Visual polish is the last thing touched, and only if time's left over at the end.
 
-Esto es consistente con `biney-brain-stack`: el MVP prioriza que el alcance funcional completo este ahi, no que se vea perfecto.
+This lines up with `biney-brain-stack`: the MVP prioritizes having the full functional scope there, not looking perfect.
 
-## Cliente freelance pide algo fuera de lo acordado
+## Freelance client asks for something outside what was agreed
 
-No se dice que no de entrada. El patron es **proponer una alternativa mas simple que cumpla el objetivo del cliente con menos riesgo o tiempo**, antes de rechazar el pedido o de implementarlo tal cual si complica el sistema.
+Don't say no upfront. The pattern is **propose a simpler alternative that meets the client's goal with less risk or time**, before rejecting the request or implementing it as-is if it complicates the system.
 
-Pasos en la practica:
-1. Entender que problema de fondo quiere resolver el cliente con ese pedido (no el pedido literal).
-2. Ofrecer una version reducida/alternativa que resuelva ese problema de fondo sin el riesgo tecnico del pedido original.
-3. Solo si el cliente insiste en la version completa despues de ver la alternativa, se evalua caso por caso (esto todavia no tiene patron fijo, no inventar una regla rigida aca).
+Steps in practice:
+1. Understand the underlying problem the client wants solved with that request (not the literal request).
+2. Offer a reduced/alternative version that solves that underlying problem without the original request's technical risk.
+3. Only if the client insists on the full version after seeing the alternative, evaluate case by case (this still has no fixed pattern, don't invent a rigid rule here).
 
-## Proyecto propio sin deadline externo (features que tu mismo propones)
+## Personal project with no external deadline (features you propose yourself)
 
-El criterio para descartar algo de forma definitiva **no es si aporta al objetivo central del proyecto**, es el **esfuerzo de implementacion relativo al beneficio**. Una idea puede encajar perfecto con el objetivo del producto y aun asi quedar descartada si el costo de implementarla es desproporcionado.
+The criterion for dropping something permanently **isn't whether it supports the project's central goal**, it's the **implementation effort relative to the benefit**. An idea can fit the product's goal perfectly and still get dropped if the cost of building it is disproportionate.
 
-Consecuencia practica: al evaluar un item del backlog propio, la pregunta no es "esto ayuda al producto?" (casi siempre la respuesta es si, si la idea llego a la lista), es "el esfuerzo que toma se justifica frente a lo que suma?". Si no, se descarta o se pospone indefinidamente, no se prioriza solo por relevancia tematica.
+In practice: when evaluating a backlog item, the question isn't "does this help the product?" (the answer is almost always yes, or it wouldn't have made the list), it's "does the effort it takes justify what it adds?" If not, drop it or postpone it indefinitely, don't prioritize it just because it's thematically relevant.
 
-## Resumen para el router
+## Summary for the router
 
-- Deadline de jurado/hackathon → corta UI/pulido, protege funcionalidad completa.
-- Pedido de cliente fuera de alcance → primero alternativa simple, recien despues evaluar si se dice que no.
-- Backlog propio sin presion externa → filtra por esfuerzo/beneficio, no por si "encaja con la vision".
+- Judge/hackathon deadline → cut UI/polish, protect full functionality.
+- Client request outside scope → propose a simple alternative first, only evaluate saying no after that.
+- Personal backlog with no external pressure → filter by effort/benefit, not by whether it "fits the vision."

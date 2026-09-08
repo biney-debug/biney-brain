@@ -1,28 +1,28 @@
 ---
 name: biney-brain-delegate
-description: Cuanto delega MRS en la IA vs resuelve el mismo, y como maneja decisiones ambiguas. Usar cuando una IA dude si debe actuar por su cuenta o pedir permiso, o cuando el trabajo tenga una decision de alcance/enfoque sin respuesta obvia.
+description: How much MRS delegates to the AI vs handles directly, and how ambiguous decisions get made. Use when an AI is unsure whether to act on its own or ask for permission, or when the work has a scope/approach decision with no obvious answer.
 ---
 
-# Delegacion: cuando actua la IA sola vs cuando interviene MRS
+# Delegation: when the AI acts alone vs when MRS steps in
 
-## Default: casi siempre pasa por la IA primero
+## Default: almost everything goes through the AI first
 
-Incluso para cambios chicos que ya se tienen claros en la cabeza, el patron es pedirselo a la IA en vez de editar directo. La razon practica es velocidad: la IA codea mas rapido y con menos errores de tipeo que hacerlo a mano, y el rol de MRS paso a ser mayormente de revision y correccion, no de escritura.
+Even for small changes that are already clear in your head, the pattern is asking the AI instead of editing directly. The practical reason is speed: the AI codes faster and with fewer typos than doing it by hand, and MRS's role shifted to mostly reviewing and correcting, not writing.
 
-Esto es un cambio respecto a un habito anterior de "yo escribo el codigo, la IA solo guia" (valido en una etapa donde se priorizaba entender el codigo a fondo, ej. tesis en sus primeras fases). El default actual es al reves: **la IA codea, MRS corrige y planea la correccion si algo esta mal.**
+This is a change from an earlier habit of "I write the code, the AI just guides" (valid at a stage where understanding the code deeply mattered more, e.g. early thesis phases). The current default runs the other way: **the AI codes, MRS corrects and plans the fix if something's wrong.**
 
-Consecuencia practica para cualquier IA operando bajo este criterio: no asumir que hay que ceder el teclado o esperar que MRS escriba, el flujo esperado es proponer/implementar directamente y dejar la correccion para despues si hace falta.
+Practical consequence for any AI operating under this judgment: don't assume you need to hand back the keyboard or wait for MRS to write something, the expected flow is proposing/implementing directly and leaving correction for later if needed.
 
-## Decisiones ambiguas (alcance, enfoque tecnico sin respuesta obvia)
+## Ambiguous decisions (scope, technical approach with no obvious answer)
 
-No se pide "dame opciones y decido yo" como default. El patron es que **la IA decida y proponga una direccion concreta**, y MRS interviene solo si el resultado no convence. Pedir permiso o presentar multiples alternativas antes de avanzar no es el flujo preferido salvo que la decision sea de las que ya tienen su propio skill (ej. cortar scope con un cliente, ver `biney-brain-scope`) donde si aplica un criterio mas cauteloso.
+Don't default to "give me options and I'll decide." The pattern is **the AI decides and proposes a concrete direction**, and MRS steps in only if the result doesn't land. Asking for permission or laying out multiple alternatives before moving forward isn't the preferred flow, except when the decision is one that already has its own skill (e.g. cutting scope with a client, see `biney-brain-scope`), where a more cautious approach does apply.
 
-## Caso especial: tecnologia que no se domina (hackathon)
+## Special case: technology you don't know well (hackathon)
 
-Cuando la tarea requiere algo fuera del stack conocido, no se improvisa ni se le pide a la misma IA que aprenda sobre la marcha: se consulta a otra IA (ej. ChatGPT) para que arme un prompt maestro detallado de esa integracion puntual, y ese prompt se le pasa a Claude Code para ejecutar (ver `biney-brain-stack`, seccion hackathon). Es la unica situacion donde el "decidir y proponer" de la IA principal se acota con instrucciones externas mas precisas antes de avanzar.
+When a task needs something outside the known stack, don't improvise, and don't ask the same AI to learn it on the fly: ask a different AI (e.g. ChatGPT) to build a detailed master prompt for that specific integration, then hand that prompt to Claude Code to execute (see `biney-brain-stack`, hackathon section). It's the only situation where the main AI's "decide and propose" gets narrowed by more precise external instructions before moving forward.
 
-## Resumen para el router
+## Summary for the router
 
-- Cambio chico o grande, ambiguo o no: default es que la IA actue primero, MRS corrige despues. No esperar permiso explicito para implementar.
-- Decision de alcance/enfoque sin respuesta obvia (que no sea negociacion con cliente ni corte de scope): proponer una direccion concreta, no una lista de opciones a elegir.
-- Tecnologia nueva/desconocida bajo presion de tiempo: pedir prompt maestro a otra IA antes de ejecutar, no aprender en vivo.
+- Small change or big one, ambiguous or not: default is the AI acts first, MRS corrects after. Don't wait for explicit permission to implement.
+- Scope/approach decision with no obvious answer (not client negotiation or scope cutting): propose one concrete direction, not a list to choose from.
+- New/unknown technology under time pressure: get a master prompt from another AI before executing, don't learn it live.

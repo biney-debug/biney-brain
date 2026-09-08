@@ -1,76 +1,76 @@
 ---
 name: biney-brain
-description: Que haria MRS (biney-debug) en esta situacion. Router de criterio experimentado, invocalo con /biney-brain cuando haya que decidir stack, cortar scope, nivel de seguridad, tests, git workflow, o cuanto delegar a la IA, y no este claro que skill aplica.
+description: What MRS (biney-debug) would do here. Router for hands-on judgment, call it with /biney-brain when you need to decide stack, cut scope, security level, tests, git workflow, or how much to delegate to the AI, and it's not obvious which skill applies.
 ---
 
-# biney-brain: router de criterio
+# biney-brain: judgment router
 
-Este skill no resuelve nada por si mismo. Su trabajo es decidir, dado un caso concreto, si:
+This skill doesn't solve anything by itself. Its job is to decide, given a concrete case, whether:
 
-1. Ya existe un skill instalado que lo resuelve mejor (delegar ahi), o
-2. El caso es un juicio propio de MRS que ningun skill de proposito general cubre (aplicar uno de los dominios de abajo).
+1. An installed skill already solves it better (delegate there), or
+2. It's a judgment call specific to MRS that no general-purpose skill covers (apply one of the domains below).
 
-No mezclar los dos: si el caso es "escribi este endpoint de forma simple" eso es codigo puro, va a ponytail, no a un dominio de biney-brain.
+Don't mix the two: if the case is "write this endpoint simply," that's plain code, it goes to `ponytail`, not a biney-brain domain.
 
-## Paso 1: identificar el tipo de caso
-
-```
-Caso llega
-    │
-    ├── Es escribir/refactorizar/elegir libreria de codigo?
-    │     └──→ delegar a `ponytail`
-    │
-    ├── Es ahorrar tokens/texto en la respuesta?
-    │     └──→ delegar a `caveman`
-    │
-    ├── Es revisar seguridad de codigo ya escrito?
-    │     └──→ delegar a `security-and-hardening` / `/security-review`
-    │           (pero el NIVEL de exigencia esperado lo define `biney-brain-security`)
-    │
-    ├── Es diseno de UI/UX?
-    │     └──→ delegar a `ui-ux-pro-max` (paletas/tipografia/estilos con datos)
-    │           o `frontend-ui-engineering` / skill `design` si no esta instalada
-    │
-    ├── Es spec/plan/review de un proceso de codigo (no una decision de negocio)?
-    │     └──→ delegar a `spec-driven-development`, `planning-and-task-breakdown`,
-    │           `code-review-and-quality` segun corresponda
-    │
-    └── Es un juicio de contexto/negocio/prioridad sin skill de codigo que lo cubra?
-          └──→ ver Paso 2
-```
-
-## Paso 2: que dominio propio aplica
+## Step 1: identify the type of case
 
 ```
-Juicio de contexto
+Case comes in
     │
-    ├── Que tecnologia/arquitectura usar segun el contexto (examen, hackathon,
-    │   freelance, tesis)? ────────────────────────→ `biney-brain-stack`
+    ├── Writing/refactoring/choosing a code library?
+    │     └──→ delegate to `ponytail`
     │
-    ├── Que cortar, posponer o negociar cuando el
-    │   alcance no entra en el tiempo? ────────────→ `biney-brain-scope`
+    ├── Saving tokens/text in the response?
+    │     └──→ delegate to `caveman`
     │
-    ├── Cuanto esfuerzo de seguridad meter segun
-    │   el contexto (mas alla de la revision tecnica)? → `biney-brain-security`
+    ├── Reviewing security of code already written?
+    │     └──→ delegate to `security-and-hardening` / `/security-review`
+    │           (but the expected bar comes from `biney-brain-security`)
     │
-    ├── Escribir tests, probar a mano, o confiar
-    │   en auditoria de IA? ───────────────────────→ `biney-brain-tests`
+    ├── UI/UX design?
+    │     └──→ delegate to `ui-ux-pro-max` (data-backed palettes/typography/styles)
+    │           or `frontend-ui-engineering` / the `design` skill if that's not installed
     │
-    ├── Como commitear/ramificar? ─────────────────→ `biney-brain-git`
+    ├── Spec/plan/review of a code process (not a business decision)?
+    │     └──→ delegate to `spec-driven-development`, `planning-and-task-breakdown`,
+    │           `code-review-and-quality` as appropriate
     │
-    ├── La IA deberia actuar sola o pedir permiso/
-    │   opciones antes de avanzar? ────────────────→ `biney-brain-delegate`
-    │
-    └── El resultado te sale generico (diseno, seguridad,
-        codigo), o la sesion se pone larga/desordenada? ─→ `biney-brain-ai-usage`
+    └── Context/business/priority judgment with no code skill covering it?
+          └──→ see Step 2
 ```
 
-## Como responder
+## Step 2: which domain applies
 
-Cuando te invoquen con `/biney-brain <situacion>`:
+```
+Context judgment
+    │
+    ├── Which technology/architecture to use depending on context (exam,
+    │   hackathon, freelance, thesis)? ────────────────→ `biney-brain-stack`
+    │
+    ├── What to cut, postpone, or negotiate when
+    │   scope doesn't fit the time available? ─────────→ `biney-brain-scope`
+    │
+    ├── How much security effort to put in
+    │   depending on context (beyond the technical review)? → `biney-brain-security`
+    │
+    ├── Write tests, test by hand, or trust
+    │   an AI audit? ───────────────────────────────────→ `biney-brain-tests`
+    │
+    ├── How to commit/branch? ──────────────────────────→ `biney-brain-git`
+    │
+    ├── Should the AI act on its own or ask for
+    │   permission/options before moving forward? ─────→ `biney-brain-delegate`
+    │
+    └── Output coming out generic (design, security,
+        code), or the session getting long/messy? ─────→ `biney-brain-ai-usage`
+```
 
-1. Clasificar el caso segun el Paso 1.
-2. Si delega a un skill externo, decirlo explicito: "esto es caso de `<skill>`, invocalo".
-3. Si aplica un dominio propio, resumir en 2-4 lineas el criterio concreto de ese SKILL.md (no repetir el archivo entero), y aclarar de que dominio sale.
-4. Si el caso mezcla dos cosas (ej. "que stack uso y como lo aseguro"), citar ambos dominios, no forzar una sola respuesta.
-5. Si el caso no encaja en ningun dominio existente, decirlo: es senal de que falta un dominio nuevo por documentar, no inventar un criterio que MRS nunca valido.
+## How to respond
+
+When invoked with `/biney-brain <situation>`:
+
+1. Classify the case per Step 1.
+2. If it delegates to an external skill, say so explicitly: "this is a case for `<skill>`, invoke it."
+3. If a domain applies, summarize that SKILL.md's concrete judgment in 2-4 lines (don't repeat the whole file), and say which domain it came from.
+4. If the case mixes two things (e.g. "what stack should I use and how do I secure it"), cite both domains, don't force a single answer.
+5. If the case doesn't fit any existing domain, say so: it's a sign a new domain needs documenting, not a reason to invent judgment MRS never actually validated.

@@ -1,33 +1,33 @@
 ---
 name: biney-brain-security
-description: Que nivel de seguridad aplica MRS segun el contexto (examen, hackathon, tesis, produccion/freelance) y como delega la revision. Usar cuando haya que decidir cuanto esfuerzo de seguridad meter, o cuando el codigo este por desplegarse.
+description: What security level MRS applies depending on context (exam, hackathon, thesis, production/freelance) and how the review gets delegated. Use when deciding how much security effort to put in, or when code is about to ship.
 ---
 
-# Nivel de seguridad segun contexto
+# Security level by context
 
-La barra de seguridad no es fija, escala con el contexto y con si hay datos reales o plata de por medio.
+The security bar isn't fixed, it scales with the context and with whether real data or money is involved.
 
-## Secrets y credentials
+## Secrets and credentials
 
-- **Freelance / produccion**: estricto siempre. Credentials son env vars obligatorias, sin defaults ni fallback embebido en el codigo. Esto no se negocia por deadline.
-- **Examen / hackathon**: se relaja. Un `.env` con valores dummy commiteado o un default temporal es aceptable porque el unico que lo ve es uno mismo y el evaluador, no hay superficie de ataque real.
+- **Freelance / production**: strict, always. Credentials are required env vars, no defaults, no fallback baked into the code. This isn't negotiable for a deadline.
+- **Exam / hackathon**: relaxed. A committed `.env` with dummy values or a temporary default is fine because the only people who see it are you and the grader, there's no real attack surface.
 
-## Validacion, hardening, auditoria de codigo
+## Validation, hardening, code audits
 
-No se salta la seguridad "porque no da el tiempo": el patron es delegarla, no omitirla. La forma de aplicarla es dejar que Claude (con ponytail + agent-skills activos) haga una pasada de auditoria completa buscando bugs de codigo y visuales, en vez de ir validando manualmente linea por linea mientras se programa.
+Security doesn't get skipped "because there's no time": the pattern is delegating it, not skipping it. That means letting Claude (with `ponytail` + `agent-skills` active) do a full audit pass looking for code and visual bugs, instead of validating line by line by hand while coding.
 
-Esto sube de intensidad segun el contexto:
-- **Tesis o algo que va a produccion real**: prioridad alta. Puntos que no se pueden olvidar:
-  - Rate limiting (evita abuso y evita pagar de mas por el backend desplegado si alguien lo satura).
-  - Prevenir fuga de datos, esto es la prioridad numero uno al momento de desplegar, mas que "seguir el checklist OWASP completo".
-- **Examen / hackathon sin datos reales**: la auditoria via IA se sigue haciendo (no se omite), pero sin el nivel de exigencia de rate-limiting/fuga de datos que aplica a tesis/produccion.
+This scales up in intensity depending on context:
+- **Thesis or anything going to real production**: high priority. Points that can't get skipped:
+  - Rate limiting (prevents abuse and prevents overpaying for the deployed backend if someone hammers it).
+  - Preventing data leaks, this is priority number one at deployment time, more than "following the full OWASP checklist."
+- **Exam / hackathon with no real data**: the AI audit still happens (it's not skipped), just without the rate-limiting/data-leak rigor that applies to thesis/production.
 
-## Como se revisa el codigo generado por IA
+## How AI-generated code gets reviewed
 
-No se revisa linea por linea a ojo. El patron es pedirle a la IA una pasada de seguridad aparte y explicita (ej. `/security-review` o el skill `security-and-hardening`) antes de dar el trabajo por cerrado, en vez de confiar por defecto o de auditar manualmente.
+No line-by-line eyeball review. The pattern is asking the AI for a separate, explicit security pass (e.g. `/security-review` or the `security-and-hardening` skill) before calling the work done, instead of trusting it by default or auditing it by hand.
 
-## Resumen para el router
+## Summary for the router
 
-- Si el caso es "voy a desplegar esto en serio" (tesis o produccion) → nivel maximo: rate limiting + prevenir fuga de datos son no-negociables, correr `/security-review` antes de cerrar.
-- Si el caso es examen/hackathon sin datos reales → seguridad basica (validacion, manejo de excepciones) via auditoria de IA, pero secrets pueden ser dummy y no hace falta rate-limiting.
-- Cualquier revision de seguridad se delega a un pase dedicado de la IA (`security-and-hardening` / `/security-review`), nunca a lectura manual linea por linea.
+- If the case is "this is actually shipping" (thesis or production) → max level: rate limiting + preventing data leaks are non-negotiable, run `/security-review` before closing it out.
+- If the case is exam/hackathon with no real data → basic security (validation, exception handling) via AI audit, but secrets can be dummy and rate limiting isn't required.
+- Any security review gets delegated to a dedicated AI pass (`security-and-hardening` / `/security-review`), never manual line-by-line reading.
