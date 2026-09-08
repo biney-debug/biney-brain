@@ -32,10 +32,14 @@ Follow textbook conventions: clean layers, well-emulated mock services (e.g. loc
 
 Architecture bends to whatever needs to be shown or measured for the research (e.g. a metrics dashboard, a specific component the thesis needs to demonstrate), not to the textbook standard in the abstract. If an architectural decision doesn't feed what the committee will grade or what the thesis needs to prove, getting it "right" isn't the priority, serving the thesis's argument is.
 
+For the technology itself: look for whatever fits the project best, but stay inside practices you actually understand. Never reach for something extremely complex just because it would look impressive, if you can't explain why it's there or how it works, it doesn't go in, no matter how good it'd look in the defense.
+
+For the documentation and writing (the thesis text itself, not the code): that's a document like any other, run it through `humanizer` before handing it over, same mandatory rule as Step 1 of the router.
+
 ## Summary for the router
 
 - Exam context → prompt's naming + the pattern already used before, don't reinvent it.
 - Hackathon/MVP context → known stack always; anything new gets isolated via another AI's master prompt + execution in Claude Code (see also `biney-brain-delegate`).
 - Client/freelance context → textbook rigor, document decisions, think about whoever maintains it next.
-- Personal thesis context → architecture serves what needs to be demonstrated/measured, not the abstract standard.
+- Personal thesis context → architecture serves what needs to be demonstrated/measured, not the abstract standard. Technology choice stays inside what you actually understand, never complexity for show. Thesis writing itself goes through `humanizer` like any other document.
 - No exam, hackathon jury, client, or thesis committee behind it at all (a portfolio piece, a tool for friends, a private experiment)? That's `biney-brain-personal`, not this domain.
