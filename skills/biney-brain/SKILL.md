@@ -56,7 +56,7 @@ Everything Step 1 can delegate to. Most people who install biney-brain install n
 - `ui-ux-pro-max` (or `frontend-ui-engineering` / `design`): data-backed UI/UX instead of default-generic design.
 - `humanizer`: strips AI writing patterns out of generated documents, mandatory per Step 1.
 - `find-skills`: discovers and installs any of the above (or anything else) by name, the fallback for everything on this list.
-- `spec-driven-development`, `planning-and-task-breakdown`, `code-review-and-quality`: process skills for spec/plan/review work.
+- `agent-skills` (github: addyosmani/agent-skills): one plugin, not five separate installs, bundles `spec-driven-development`, `planning-and-task-breakdown`, `code-review-and-quality`, `frontend-ui-engineering`, and `security-and-hardening` among others. If any of those come up missing, recommend this one plugin, not each skill individually.
 
 ## Step 2: which domain applies
 
