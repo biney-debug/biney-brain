@@ -28,7 +28,8 @@ Caso llega
     │           (pero el NIVEL de exigencia esperado lo define `biney-brain-security`)
     │
     ├── Es diseno de UI/UX?
-    │     └──→ delegar a `frontend-ui-engineering` / skill `design`
+    │     └──→ delegar a `ui-ux-pro-max` (paletas/tipografia/estilos con datos)
+    │           o `frontend-ui-engineering` / skill `design` si no esta instalada
     │
     ├── Es spec/plan/review de un proceso de codigo (no una decision de negocio)?
     │     └──→ delegar a `spec-driven-development`, `planning-and-task-breakdown`,

@@ -14,11 +14,11 @@
 
 Tranquilo causa. Aca hay otro fracasado, pero con mas chamba encima: examenes resueltos repitiendo el patron que ya funciono, hackathons a las corridas, algun cliente real que casi me hace tirar todo por la ventana, y una tesis que me enseno a no confundir "bien hecho" con "lo que hay que mostrar". De ahi sali con un criterio que ya no me complico en pensar de cero cada vez.
 
-biney-brain empaqueta ese criterio como router: le cuentas el caso, y te dice si esto ya lo resuelve un skill que tienes instalado (`ponytail` para no escribir de mas, `caveman` para no hablar de mas, `security-and-hardening` para no filtrar datos, `frontend-ui-engineering` para que no se vea a examen de colegio) o si es un juicio de contexto que ningun skill de codigo cubre, y ahi aplica el criterio ya masticado.
+biney-brain empaqueta ese criterio como router: le cuentas el caso, y te dice si esto ya lo resuelve un skill que tienes instalado (`ponytail` para no escribir de mas, `caveman` para no hablar de mas, `security-and-hardening` para no filtrar datos, `ui-ux-pro-max` para que no se vea a examen de colegio) o si es un juicio de contexto que ningun skill de codigo cubre, y ahi aplica el criterio ya masticado.
 
 No resuelve todo. No te hace mas inteligente. Solo evita que reinventes la rueda con cada decision que ya alguien (yo, en este caso) la cago resolviendo antes que tu.
 
-Si `ponytail` es el senior que no escribe de mas en el codigo, biney-brain es el pata que no se complica de mas usando la IA: si el resultado te sale generico (un design que se ve hecho por IA, codigo sin pensar en seguridad), no te quedas peleando el prompt, buscas en TikTok/YouTube si ya existe una skill hecha para eso; si la tarea es grande, la cortas en pedazos chicos con un `.md` de contexto antes de que la sesion se te desarme sola.
+Si `ponytail` es el senior que no escribe de mas en el codigo, biney-brain es el pata que no se complica de mas usando la IA: si el resultado te sale generico (un design que se ve hecho por IA, codigo sin pensar en seguridad), no te quedas peleando el prompt, buscas con `find-skills` (o en TikTok/YouTube si no encuentra nada) si ya existe una skill hecha para eso; si la tarea es grande, la cortas en pedazos chicos con un `.md` de contexto antes de que la sesion se te desarme sola.
 
 ## Antes / despues
 

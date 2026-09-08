@@ -11,7 +11,7 @@ Esto no es criterio de producto, es criterio de como trabajar con la herramienta
 
 El problema no es no saber que pedir, es que lo que la IA devuelve por default es generico: un diseno de landing que se ve "hecho por IA", codigo que funciona pero sin pensar en seguridad ni optimizacion, lo que sea. Ahi el error es quedarte peleando con el prompt tratando de corregirlo a mano, prompt tras prompt, hasta que salga bien.
 
-En vez de eso: se busca en TikTok o YouTube si ya existe una skill hecha para exactamente ese problema (una skill de diseno de landings, una skill de hardening de codigo, etc.) y se instala esa, en vez de intentar lograr lo mismo a punta de prompts genericos. Alguien ya empaqueto el criterio especializado que te falta, no hace falta reinventarlo a mano cada vez. Es la misma logica de este mismo repo: biney-brain existe porque buscar "una skill para X" es mas rapido que tratar de explicarle todo a la IA de cero.
+En vez de eso: primero se prueba `find-skills` (si esta instalado) para buscar/instalar directo desde Claude Code una skill hecha para exactamente ese problema, y si no aparece nada util recien se busca a mano en TikTok/YouTube. Ninguna de las dos formas es "seguir peleando el prompt": es buscar si alguien ya empaqueto el criterio especializado que te falta, no reinventarlo a mano cada vez. Es la misma logica de este mismo repo: biney-brain existe porque buscar "una skill para X" es mas rapido que tratar de explicarle todo a la IA de cero.
 
 El bloqueo real que esto evita es el perfeccionismo de pelear con el prompt: si el resultado sigue saliendo generico despues de un par de intentos, se corta ahi y se busca la skill que ya lo resuelve, no se sigue insistiendo a mano.
 
@@ -28,5 +28,5 @@ Consecuencia practica: si una tarea se ve grande, no se arranca de una, se corta
 
 ## Resumen para el router
 
-- El resultado sale generico (diseno, seguridad, codigo) → buscate una skill ya hecha en TikTok/YouTube antes de seguir peleando con el prompt.
+- El resultado sale generico (diseno, seguridad, codigo) → prueba `find-skills` primero, y si no encuentra nada recien buscas en TikTok/YouTube, antes de seguir peleando con el prompt.
 - Sesion larga o tarea grande → dividir en tareas chicas, y usar un `.md` de contexto (persistente en el repo + resumenes intermedios) en vez de confiar en que el historial aguante.
