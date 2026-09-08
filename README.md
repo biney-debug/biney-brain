@@ -12,7 +12,7 @@
 
 Tired of being the guy who can't get real value out of Claude Code? Installed four skills, still don't know which one to use, when, or why, and end up asking the AI everything with last-minute-exam judgment?
 
-Relax. Here's another screwup, but with more mileage: exams solved by repeating the pattern that already worked, hackathons done in a rush, and a thesis I've only just started, already forcing me to figure out what actually needs to be shown instead of what just feels like good work. That's where this judgment came from, the kind I don't have to rebuild from scratch every time.
+Relax. Here's another screwup, but with more mileage: exams solved by repeating the pattern that already worked, hackathons done in a rush, and a thesis I'm working through right now, already forcing me to figure out what actually needs to be shown instead of what just feels like good work. That's where this judgment came from, the kind I don't have to rebuild from scratch every time.
 
 biney-brain packages that judgment as a router: you describe the situation, and it tells you whether an installed skill already solves it (`ponytail` so you don't write more code than needed, `caveman` so you don't say more than needed, `security-and-hardening` so you don't leak data, `ui-ux-pro-max` so it doesn't look like a school project, `humanizer` so a document doesn't read like it came out of a chatbot) or whether it's a context call that no code skill covers, in which case it applies judgment that's already been chewed on.
 
@@ -50,7 +50,7 @@ A router (`biney-brain`) plus one domain per type of decision:
 - `biney-brain-tests`: when to write tests, when to test by hand, when to trust an AI audit
 - `biney-brain-git`: how to commit and branch, even solo
 - `biney-brain-delegate`: how much you hand off to the AI, including running full auto mode without babysitting every step, and the two things that mean stop and look
-- `biney-brain-model`: which Claude model to run a task on (Sonnet 5 by default, Opus 5 for design work, when Fable 5 isn't needed)
+- `biney-brain-model`: which Claude model to run a task on, Sonnet 5 by default, Opus 5 for design work, Fable 5 not needed so far
 - `biney-brain-ai-usage`: what to do when the output comes out generic (find the skill that already solves it), and how to keep the session from auto-compressing on you
 
 Each one is a `SKILL.md`, concrete judgment, not pure theory. Don't need a domain, delete it. Missing one, add it the same way as the rest.
@@ -156,7 +156,7 @@ No. `biney-brain-stack`, `biney-brain-scope`, `biney-brain-security`, `biney-bra
 No, it routes to them. biney-brain doesn't write code, review security, or design UI, those skills already do that well. It decides which one applies, or hands you MRS's judgment when none of them cover the actual question (what stack, how much to cut, how much security effort, that kind of call).
 
 **Why is it named after MRS specifically, can I use it if I'm not them?**
-Yes. The domains are one specific person's real judgment, exams and hackathons already lived through, a thesis just getting started, and criteria for freelance work worked out ahead of actually having a client. Documented as-is instead of watered down into generic advice, and marked as untested where it is. Use it as-is if it matches how you work, or fork the domains and put in your own answers, that's the whole point of it being plain `SKILL.md` files instead of something harder to edit.
+Yes. The domains are one specific person's real judgment, exams and hackathons already lived through, a thesis in progress right now, and criteria for freelance work worked out ahead of actually having a client. Documented as-is instead of watered down into generic advice, and marked as untested where it is. Use it as-is if it matches how you work, or fork the domains and put in your own answers, that's the whole point of it being plain `SKILL.md` files instead of something harder to edit.
 
 **Can I add my own domain?**
 Yes, that's how `biney-brain-personal` got added. Copy an existing `skills/biney-brain-*/SKILL.md` as a template, write the real judgment (not theory), then add a branch for it in `skills/biney-brain/SKILL.md`'s Step 2 flowchart.
