@@ -57,8 +57,11 @@ Juicio de contexto
     │
     ├── Como commitear/ramificar? ─────────────────→ `biney-brain-git`
     │
-    └── La IA deberia actuar sola o pedir permiso/
-        opciones antes de avanzar? ────────────────→ `biney-brain-delegate`
+    ├── La IA deberia actuar sola o pedir permiso/
+    │   opciones antes de avanzar? ────────────────→ `biney-brain-delegate`
+    │
+    └── No sabes ni como pedirle esto a la IA, o la
+        sesion se esta poniendo larga/desordenada? ─→ `biney-brain-ai-usage`
 ```
 
 ## Como responder

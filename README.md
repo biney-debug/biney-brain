@@ -18,6 +18,8 @@ biney-brain empaqueta ese criterio como router: le cuentas el caso, y te dice si
 
 No resuelve todo. No te hace mas inteligente. Solo evita que reinventes la rueda con cada decision que ya alguien (yo, en este caso) la cago resolviendo antes que tu.
 
+Si `ponytail` es el senior que no escribe de mas en el codigo, biney-brain es el pata que no se complica de mas usando la IA: si no sabes ni como pedirle algo, busca un tutorial corto antes de trabarte pensando el prompt perfecto; si la tarea es grande, la cortas en pedazos chicos con un `.md` de contexto antes de que la sesion se te desarme sola.
+
 ## Antes / despues
 
 Preguntas "que stack uso para este hackathon de 30 horas" y tu IA te arma un mapa de microservicios con Kafka porque "escala mejor".
@@ -44,6 +46,7 @@ Un router (`biney-brain`) mas un dominio por tipo de decision:
 - `biney-brain-tests`: cuando escribir tests, cuando probar a mano, cuando confiar en que la IA audite
 - `biney-brain-git`: como commitear y ramificar, incluso trabajando solo
 - `biney-brain-delegate`: cuanto le sueltas la mano a la IA y cuando intervienes tu
+- `biney-brain-ai-usage`: como no trabarte antes de promptear, y como evitar que la sesion se autocomprima
 
 Cada uno es un `SKILL.md`, criterio concreto, no pura teoria. Si no te sirve un dominio, lo borras. Si te falta uno, se agrega igual que los demas.
 
