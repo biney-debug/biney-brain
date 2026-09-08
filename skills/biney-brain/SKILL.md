@@ -84,6 +84,8 @@ Context judgment
     ├── Should the AI act on its own or ask for
     │   permission/options before moving forward? ─────→ `biney-brain-delegate`
     │
+    ├── Which Claude model to run this on? ─────────────→ `biney-brain-model`
+    │
     └── Output coming out generic (design, security,
         code), or the session getting long/messy? ─────→ `biney-brain-ai-usage`
 ```

@@ -50,6 +50,7 @@ A router (`biney-brain`) plus one domain per type of decision:
 - `biney-brain-tests`: when to write tests, when to test by hand, when to trust an AI audit
 - `biney-brain-git`: how to commit and branch, even solo
 - `biney-brain-delegate`: how much you hand off to the AI, including running full auto mode without babysitting every step, and the two things that mean stop and look
+- `biney-brain-model`: which Claude model to run a task on (Sonnet 5 by default, Opus 5 for design work, when Fable 5 isn't needed)
 - `biney-brain-ai-usage`: what to do when the output comes out generic (find the skill that already solves it), and how to keep the session from auto-compressing on you
 
 Each one is a `SKILL.md`, concrete judgment, not pure theory. Don't need a domain, delete it. Missing one, add it the same way as the rest.
@@ -99,8 +100,9 @@ As of Codex CLI 0.128, that registers the marketplace but doesn't install the sk
 Install these skills from github.com/biney-debug/biney-brain (branch master,
 pass --ref master) into $CODEX_HOME/skills using skill-installer:
 skills/biney-brain, skills/biney-brain-ai-usage, skills/biney-brain-delegate,
-skills/biney-brain-git, skills/biney-brain-personal, skills/biney-brain-scope,
-skills/biney-brain-security, skills/biney-brain-stack, skills/biney-brain-tests
+skills/biney-brain-git, skills/biney-brain-model, skills/biney-brain-personal,
+skills/biney-brain-scope, skills/biney-brain-security, skills/biney-brain-stack,
+skills/biney-brain-tests
 Then tell me when it's done and that I should restart Codex.
 ```
 
@@ -148,7 +150,7 @@ codex plugin marketplace remove biney-brain
 ## FAQ
 
 **I only installed biney-brain, none of the skills it mentions. Is it useless without them?**
-No. `biney-brain-stack`, `biney-brain-scope`, `biney-brain-security`, `biney-brain-tests`, `biney-brain-git`, `biney-brain-delegate`, `biney-brain-personal`, and `biney-brain-ai-usage` are all self-contained judgment, no dependencies. Only the Step 1 delegations (`ponytail`, `security-and-hardening`, etc.) need the actual skill installed, and biney-brain tells you exactly which one when it hits that case.
+No. `biney-brain-stack`, `biney-brain-scope`, `biney-brain-security`, `biney-brain-tests`, `biney-brain-git`, `biney-brain-delegate`, `biney-brain-model`, `biney-brain-personal`, and `biney-brain-ai-usage` are all self-contained judgment, no dependencies. Only the Step 1 delegations (`ponytail`, `security-and-hardening`, etc.) need the actual skill installed, and biney-brain tells you exactly which one when it hits that case.
 
 **Does this replace ponytail, caveman, security-and-hardening, or the rest?**
 No, it routes to them. biney-brain doesn't write code, review security, or design UI, those skills already do that well. It decides which one applies, or hands you MRS's judgment when none of them cover the actual question (what stack, how much to cut, how much security effort, that kind of call).
