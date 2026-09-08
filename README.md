@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="220" alt="biney-brain, el pata con mas experiencia que tu">
+  <img src="assets/logo.png?v=2" width="220" alt="biney-brain, el pata con mas experiencia que tu">
 </p>
 
 <h1 align="center">biney-brain</h1>
