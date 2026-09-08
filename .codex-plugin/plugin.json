@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "biney-brain",
+  "version": "0.1.0",
+  "description": "What would MRS do in this situation? Personal-judgment router for AI coding agents.",
+  "author": {
+    "name": "MRS (biney-debug)",
+    "url": "https://github.com/biney-debug"
+  },
+  "homepage": "https://github.com/biney-debug/biney-brain",
+  "repository": "https://github.com/biney-debug/biney-brain",
+  "keywords": ["judgment", "router", "productivity", "context"],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "biney-brain",
+    "shortDescription": "Personal-judgment router: what would MRS do here",
+    "longDescription": "Given a case, decide whether an installed skill already solves it or apply hands-on judgment for stack, scope, security, tests, git, delegation, and AI usage.",
+    "developerName": "MRS (biney-debug)",
+    "category": "Productivity",
+    "capabilities": ["Instructions", "Lifecycle hooks"],
+    "websiteURL": "https://github.com/biney-debug/biney-brain",
+    "defaultPrompt": [
+      "Use biney-brain for this decision.",
+      "What would MRS do in this situation?",
+      "/biney-brain <describe your situation>"
+    ],
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}

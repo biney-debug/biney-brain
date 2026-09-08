@@ -2,6 +2,7 @@
   "hooks": {
     "SessionStart": [
       {
+        "matcher": "startup|resume|clear|compact",
         "hooks": [
           {
             "type": "command",
@@ -11,12 +12,13 @@
         ]
       },
       {
+        "matcher": "startup|resume|clear|compact",
         "hooks": [
           {
             "type": "command",
             "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh\"",
             "timeout": 5,
-            "statusMessage": "Cargando criterio de biney-brain..."
+            "statusMessage": "Loading biney-brain criteria..."
           }
         ]
       }

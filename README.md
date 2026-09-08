@@ -77,13 +77,24 @@ If it's already on GitHub:
 
 ### Codex CLI
 
-Codex CLI reads the same `SKILL.md` format from `~/.codex/skills/` and, since v0.117, supports a `SessionStart` hook the same way Claude Code does. From a local clone of this repo, one command:
+Codex CLI reads the same `SKILL.md` format, and this repo ships a `.codex-plugin/plugin.json` (same shape as `.claude-plugin/plugin.json`) so it can register as a plugin marketplace:
 
 ```
-bash scripts/install-codex.sh
+codex plugin marketplace add biney-debug/biney-brain
 ```
 
-That copies the seven skills into `~/.codex/skills/`, copies the Codex-flavored session hook into `~/.codex/hooks/`, and merges a `SessionStart` entry into `~/.codex/hooks.json` without touching whatever else is already in there (needs `python3` on your PATH). Safe to re-run after a `git pull`, it just skips the merge if the hook is already registered. Restart Codex CLI afterward so it picks up the new skills.
+As of Codex CLI 0.128, that registers the marketplace but doesn't install the skills yet, full plugin activation (`plugin_hooks`) is still an experimental feature there. Until it lands, install the skills for real with Codex's own built-in `skill-installer`: paste this into Codex CLI and it handles it.
+
+```
+Install these skills from github.com/biney-debug/biney-brain (branch master,
+pass --ref master) into $CODEX_HOME/skills using skill-installer:
+skills/biney-brain, skills/biney-brain-ai-usage, skills/biney-brain-delegate,
+skills/biney-brain-git, skills/biney-brain-scope, skills/biney-brain-security,
+skills/biney-brain-stack, skills/biney-brain-tests
+Then tell me when it's done and that I should restart Codex.
+```
+
+Once installed, the skills auto-invoke the same way they do on Claude Code, matched by description, no need to name them explicitly.
 
 ## Statusline badge (optional, for whoever installs it)
 

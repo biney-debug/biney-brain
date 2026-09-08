@@ -5,5 +5,6 @@
   "author": {
     "name": "MRS (biney-debug)",
     "url": "https://github.com/biney-debug"
-  }
+  },
+  "hooks": "./hooks/hooks.json"
 }
