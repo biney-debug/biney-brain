@@ -11,7 +11,9 @@ This isn't product judgment, it's judgment about how to work with the tool itsel
 
 The problem isn't not knowing what to ask for, it's that what the AI returns by default is generic: a landing page design that looks "made by AI," code that works but wasn't built with security or optimization in mind, whatever the case. The mistake there is sitting there fighting the prompt trying to fix it by hand, prompt after prompt, until it comes out right.
 
-Instead: try `find-skills` first (if it's installed) to search for and install, right from Claude Code, a skill built for exactly that problem, and only search TikTok/YouTube by hand if nothing useful turns up. Neither of those is "keep fighting the prompt": it's checking whether someone already packaged the specialized judgment you're missing, instead of reinventing it by hand every time. Same logic as this repo: biney-brain exists because searching "a skill for X" beats trying to explain everything to the AI from zero.
+First check whether the Step 1 roster already names the fix: a generic-looking UI is `ui-ux-pro-max` (or `frontend-ui-engineering`/`design`), code with no security thought is `security-and-hardening`. That's the answer, don't reach past it for `find-skills` when the roster already covers the category.
+
+Only when the roster doesn't cover that specific kind of generic output, or you already applied the roster's skill and it's still coming out generic: try `find-skills` (if it's installed) to search for and install, right from Claude Code, a skill built for exactly that problem, and only search TikTok/YouTube by hand if nothing useful turns up. Neither of those is "keep fighting the prompt": it's checking whether someone already packaged the specialized judgment you're missing, instead of reinventing it by hand every time. Same logic as this repo: biney-brain exists because searching "a skill for X" beats trying to explain everything to the AI from zero.
 
 What this actually prevents is the perfectionism of fighting the prompt: if the output still comes out generic after a couple of tries, stop there and go find the skill that already solves it, don't keep insisting by hand.
 
@@ -28,5 +30,5 @@ In practice: if a task looks big, don't start it all at once, cut it into small 
 
 ## Summary for the router
 
-- Output comes out generic (design, security, code) → try `find-skills` first, and if it finds nothing, only then search TikTok/YouTube, before continuing to fight the prompt.
+- Output comes out generic (design, security, code) → check the Step 1 roster first (`ui-ux-pro-max` for design, `security-and-hardening` for security), only fall to `find-skills` when the roster doesn't cover it or already-applied still isn't enough, and only then TikTok/YouTube, before continuing to fight the prompt.
 - Long session or big task → split it into small tasks, and use a context `.md` (persistent in the repo + intermediate summaries) instead of trusting the history to hold up.
