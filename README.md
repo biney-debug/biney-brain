@@ -48,7 +48,7 @@ A router (`biney-brain`) plus one domain per type of decision:
 - `biney-brain-scope`: what to cut, postpone, or negotiate when time runs short
 - `biney-brain-security`: how much security effort to put in and when it's not negotiable
 - `biney-brain-tests`: when to write tests, when to test by hand, when to trust an AI audit
-- `biney-brain-git`: how to commit and branch, even solo
+- `biney-brain-git`: how to commit and branch even solo, and keeping docs from drifting behind the code
 - `biney-brain-delegate`: how much you hand off to the AI, including running full auto mode without babysitting every step, and the two things that mean stop and look
 - `biney-brain-model`: which Claude model to run a task on, Sonnet 5 by default, Opus 5 for design work, Fable 5 not needed so far
 - `biney-brain-ai-usage`: what to do when the output comes out generic (find the skill that already solves it), and how to keep the session from auto-compressing on you
