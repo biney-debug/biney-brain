@@ -20,10 +20,10 @@ Zero automated tests. All verification is manual, and it's opportunistic too: ch
 ## Personal project with no external deadline
 
 The judgment shifts in two ways compared to a hackathon:
-1. **Tests do get written**, but limited to what's critical: payments, auth, calculations, logic where a silent bug is expensive or hard to spot. Not full coverage.
+1. **Tests get delegated, not hand-written.** The pattern is asking `ponytail` or `agent-skills` directly to test, audit, and fix what it finds, then demand a real, honest, percentage-based status report back, e.g.: "usa ponytail o agent-skills para auditar, testear y solucionar posibles errores, al final dame un reporte verdadero porcentual y honesto del estado actual del proyecto después de los tests." You're not writing the suite by hand, the deliverable you actually want is a report you can trust.
 2. **Manual testing happens for real**, not just when time allows like in a hackathon. In a longer-running personal project, manual testing is a regular part of the flow, not an opportunistic exception.
 
-The underlying pattern in both cases (hackathon and personal project) is the same flow: ask the AI to run the tests/audit and hand back a report, and add your own manual review on top when context allows. The difference is how much time goes into that manual review: almost none in a hackathon, real time in a personal project.
+The underlying pattern in both cases (hackathon and personal project) is the same flow: ask the AI to run the tests/audit and hand back an honest, percentage-based report, and add your own manual review on top when context allows. The difference is how much time goes into that manual review: almost none in a hackathon, real time in a personal project.
 
 ## Freelance (external client who might request support later)
 
@@ -33,5 +33,5 @@ Tests get added **by default**, even if the client doesn't explicitly ask for th
 
 - Exam → tests only if the rubric asks for them, real verification = manual screenshots, total priority is meeting the rubric.
 - Hackathon → zero automated tests, opportunistic manual verification + AI audit report.
-- Personal project → tests limited to critical logic + real manual verification, not opportunistic.
+- Personal project → tests delegated to `ponytail`/`agent-skills` with an explicit ask for an honest, percentage-based report, plus real (not opportunistic) manual verification.
 - Freelance → tests by default, not dependent on the client asking.
