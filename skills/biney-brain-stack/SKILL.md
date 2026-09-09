@@ -1,6 +1,6 @@
 ---
 name: biney-brain-stack
-description: How MRS picks stack/architecture depending on context (exam, hackathon, freelance, thesis). Use when deciding technology or technical structure and the task's context (graded, hard deadline, external client, personal research) matters more than the "ideal" technology.
+description: How MRS picks stack/architecture depending on context (exam, hackathon, freelance, thesis), and which installed stack-specific skill pairs with `ponytail` for a given technology. Use when deciding technology or technical structure and the task's context (graded, hard deadline, external client, personal research) matters more than the "ideal" technology, or when the task touches a stack that has a specialized skill installed.
 ---
 
 # Choosing a stack by context
@@ -11,7 +11,7 @@ The question is never "what's the best technology," it's "who's going to grade/m
 
 1. The prompt always wins on whatever it specifies (naming, explicit stack, requested structure). Zero room for your own call there.
 2. For everything the prompt does NOT specify (DTO vs. direct entity, Bean Validation, testing library, service/repository layers, `@Transactional`), don't re-decide from scratch: repeat the pattern that already worked on the previous exam. Consistency across exams matters more than "the correct way" in the abstract, because it's already proven to run and not cost points.
-3. In practice: before starting a new exam, first check whether there's a reusable pattern from before (check past exams/projects) instead of proposing a new "cleaner" structure.
+3. In practice: before starting a new exam, first check whether there's a reusable pattern from before (check past exams/projects) instead of proposing a new "cleaner" structure. When the exam's stack has one of the skills in the table below installed (Spring Boot, PostgreSQL, Angular), that skill backs up "the pattern that already worked" with a maintained reference instead of relying only on memory of past exams.
 
 ## Hackathon (24-48h, MVP, demo/pitch at the end)
 
@@ -35,6 +35,21 @@ Architecture bends to whatever needs to be shown or measured for the research (e
 For the technology itself: look for whatever fits the project best, but stay inside practices you actually understand. Never reach for something extremely complex just because it would look impressive, if you can't explain why it's there or how it works, it doesn't go in, no matter how good it'd look in the defense.
 
 For the documentation and writing (the thesis text itself, not the code): that's a document like any other, run it through `humanizer` before handing it over, same mandatory rule as Step 1 of the router.
+
+## Stack-specific skills (pair with `ponytail`, never instead of it)
+
+Some stacks already have a specialized skill installed for idiomatic correctness, on top of `ponytail`'s minimalism:
+
+| Stack | Skill | What it's for |
+|---|---|---|
+| Spring Boot (exams) | `java-springboot` | idiomatic Spring Boot patterns |
+| PostgreSQL schema | `postgresql-table-design` | table/schema design |
+| PostgreSQL queries | `postgresql-optimization` | query performance, JSONB, PostgreSQL-only features |
+| PostgreSQL review | `postgresql-code-review` | reviewing existing SQL |
+| Angular | `angular-developer` (official `angular/skills`) | components, signals, forms, routing, SSR |
+| Power BI | `powerbi-modeling` | model/relationship design (needs the `power-bi-modeling` MCP connected to actually inspect a model, falls back to general guidance without it) |
+
+`ponytail` still decides how much code to write. These decide what's correct for that specific stack. Use both together, checking the stack table isn't optional just because ponytail already gave an answer, a minimal-but-wrong-for-the-stack answer isn't actually minimal, it's a rewrite waiting to happen.
 
 ## Summary for the router
 

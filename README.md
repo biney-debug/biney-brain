@@ -43,7 +43,7 @@ No 3am argument about hexagonal architecture. No Kafka in a 30-hour MVP.
 
 A router (`biney-brain`) plus one domain per type of decision:
 
-- `biney-brain-stack`: what technology to use depending on context (exam, hackathon, real client, personal research project)
+- `biney-brain-stack`: what technology to use depending on context (exam, hackathon, real client, personal research project), plus a table mapping specific stacks (Spring Boot, PostgreSQL, Angular, Power BI) to an installed skill that pairs with `ponytail`
 - `biney-brain-personal`: stack, security tier, and how much polish matters for a project with no exam/hackathon/client/thesis behind it, a portfolio piece or a tool for friends
 - `biney-brain-scope`: what to cut, postpone, or negotiate when time runs short
 - `biney-brain-security`: how much security effort to put in and when it's not negotiable
@@ -76,6 +76,8 @@ biney-brain doesn't do any of this by itself, it routes to skills that do. Most 
 - `agent-skills` (github: [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)): one plugin, not five separate installs, bundles `spec-driven-development`, `planning-and-task-breakdown`, `code-review-and-quality`, `frontend-ui-engineering`, and `security-and-hardening` among others.
 
 If biney-brain tries to hand a case to one of these and you don't have it, it says so instead of faking the criteria. Once more than one comes up missing in the same session, it stops surfacing gaps one at a time and offers this whole list.
+
+Stack-specific technical skills (Spring Boot, PostgreSQL, Angular, Power BI) aren't part of this universal starter pack, only install the ones matching your actual stack, see `biney-brain-stack`'s table.
 
 ## Install
 
