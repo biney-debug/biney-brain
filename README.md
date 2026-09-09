@@ -47,7 +47,7 @@ A router (`biney-brain`) plus one domain per type of decision:
 - `biney-brain-personal`: stack, security tier, and how much polish matters for a project with no exam/hackathon/client/thesis behind it, a portfolio piece or a tool for friends
 - `biney-brain-scope`: what to cut, postpone, or negotiate when time runs short
 - `biney-brain-security`: how much security effort to put in and when it's not negotiable
-- `biney-brain-tests`: when to write tests, when to test by hand, when to trust an AI audit
+- `biney-brain-tests`: when to write tests, when to test by hand, when to trust an AI audit, and which browser tool backs "verify for real" (`playwright-cli` by default, `claude-in-chrome` only for the user's real logged-in session)
 - `biney-brain-git`: how to commit and branch even solo, and keeping docs from drifting behind the code
 - `biney-brain-delegate`: how much you hand off to the AI, including running full auto mode without babysitting every step, and the two things that mean stop and look
 - `biney-brain-model`: which Claude model to run a task on, Sonnet 5 by default, Opus 5 for design work, Fable 5 not needed so far
@@ -76,6 +76,9 @@ biney-brain doesn't do any of this by itself, it routes to skills that do. Most 
 - `agent-skills` (github: [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)): one plugin, not five separate installs, bundles `spec-driven-development`, `planning-and-task-breakdown`, `code-review-and-quality`, `frontend-ui-engineering`, and `security-and-hardening` among others.
 
 If biney-brain tries to hand a case to one of these and you don't have it, it says so instead of faking the criteria. Once more than one comes up missing in the same session, it stops surfacing gaps one at a time and offers this whole list.
+
+- `playwright-cli`: scripted browser automation and real Playwright test runs, default for verifying a UI/frontend change works.
+- `claude-in-chrome`: drives the user's actual logged-in Chrome, only when the check needs their real session or it's a live interactive moment.
 
 Stack-specific technical skills (Spring Boot, PostgreSQL, Angular, Power BI) aren't part of this universal starter pack, only install the ones matching your actual stack, see `biney-brain-stack`'s table.
 

@@ -9,7 +9,7 @@ The underlying priority is never "test coverage," it's that the work meets its a
 
 ## Exam
 
-Absolute priority: meeting the rubric 100%. If the prompt requires tests as part of the deliverable, don't design the suite from scratch: ask the AI what cases to cover, and verify for real by taking manual screenshots of them running. The automated test is a rubric deliverable there, not a tool you personally trust.
+Absolute priority: meeting the rubric 100%. If the prompt requires tests as part of the deliverable, don't design the suite from scratch: ask the AI what cases to cover, and verify for real by taking manual screenshots of them running (`playwright-cli` scripts this instead of clicking by hand). The automated test is a rubric deliverable there, not a tool you personally trust.
 
 If the prompt doesn't ask for tests, don't write them. All the time goes to getting the functionality complete.
 
@@ -28,6 +28,10 @@ The underlying pattern in both cases (hackathon and personal project) is the sam
 ## Freelance (external client who might request support later)
 
 Tests get added **by default**, even if the client doesn't explicitly ask for them in scope. Same reason as textbook architecture in `biney-brain-stack`: someone technical and external is going to maintain this, and a minimal test reduces the risk of regressions you'll later get asked to fix without it being quoted.
+
+## Which browser tool backs "verify for real"
+
+Every context above ends in some form of "verify for real" (exam screenshots, hackathon manual check, the delegated audit's report). `playwright-cli` is the default tool behind that, scripted, no site permissions, and it can generate an actual Playwright test file instead of a one-off check, so the exam's proof-of-run or the freelance test suite survives past this one conversation. `claude-in-chrome` only comes in when the check needs the user's real logged-in session, not a scripted one. Full rule and the `agent-skills` DevTools footnote live in the router's Step 1.
 
 ## Summary for the router
 
