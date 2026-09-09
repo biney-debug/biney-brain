@@ -99,7 +99,7 @@ Codex CLI reads the same `SKILL.md` format, and this repo ships a `.codex-plugin
 codex plugin marketplace add biney-debug/biney-brain
 ```
 
-As of Codex CLI 0.128, that registers the marketplace but doesn't install the skills yet, full plugin activation (`plugin_hooks`) is still an experimental feature there. Until it lands, install the skills for real with Codex's own built-in `skill-installer`: paste this into Codex CLI and it handles it.
+That registers the marketplace but doesn't install the skills yet. Codex's hooks (what would auto-load the router the way Claude Code's `SessionStart` does) are experimental, opt-in via `[features] hooks = true` in `~/.codex/config.toml`, and **disabled entirely on Windows regardless of that flag**, not a "still maturing" situation there, a stated platform exclusion. Install the skills for real with Codex's own built-in `skill-installer` instead: paste this into Codex CLI and it handles it.
 
 ```
 Install these skills from github.com/biney-debug/biney-brain (branch master,
@@ -167,7 +167,7 @@ Yes. The domains are one specific person's real judgment, exams and hackathons a
 Yes, that's how `biney-brain-personal` got added. Copy an existing `skills/biney-brain-*/SKILL.md` as a template, write the real judgment (not theory), then add a branch for it in `skills/biney-brain/SKILL.md`'s Step 2 flowchart.
 
 **Does it work the same on Claude Code and Codex CLI?**
-The judgment is identical, same `SKILL.md` files either way. The difference is how the router gets force-loaded at session start: Claude Code does it through a `SessionStart` hook out of the box, Codex CLI's equivalent (`plugin_hooks`) is still experimental, so on Codex the domains rely on being auto-invoked by description match instead, same as any other skill there.
+The judgment is identical, same `SKILL.md` files either way. The always-on part isn't: Claude Code force-loads the router at session start through a `SessionStart` hook out of the box. Codex's equivalent is experimental, opt-in via a config flag, and disabled outright on Windows no matter what you set, so on Codex the domains rely on being auto-invoked by description match instead, same as any other skill there, not "the router is always in context from message one" like on Claude Code.
 
 ---
 
