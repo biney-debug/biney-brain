@@ -15,7 +15,7 @@
   "interface": {
     "displayName": "biney-brain",
     "shortDescription": "Personal-judgment router: what would MRS do here",
-    "longDescription": "Given a case, decide whether an installed skill already solves it or apply hands-on judgment for stack, scope, security, tests, git, delegation, and AI usage.",
+    "longDescription": "Given a case, decide whether an installed skill already solves it or apply hands-on judgment for stack, personal projects, scope, security, tests, git, delegation, model choice, and AI usage.",
     "developerName": "MRS (biney-debug)",
     "category": "Productivity",
     "capabilities": ["Instructions", "Lifecycle hooks"],
