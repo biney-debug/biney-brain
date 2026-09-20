@@ -51,6 +51,9 @@ Report incidents as they were: text typed into the wrong place, a selection that
 - A list paragraph turned into plain text keeps its indent, decrease it once. Paragraph spacing is set from the format menu's custom spacing dialog, and "keep with next" stops a figure caption being left alone at the bottom of a page.
 - Inserting an image: the file picker can't be driven. Serve the image from a local server with permissive CORS, fetch it in the page, and dispatch a paste event carrying the file at the editor's text-event iframe. A synthetic paste shortcut and the file upload tool don't work here. Stop the server afterwards.
 - Discontiguous work needs a fresh screenshot before every click, the page keeps scrolling after a wheel input.
+- For wording changes inside paragraphs that are already formatted (a humanizer pass, a rewrite of one sentence), use Find and replace instead of retyping the paragraph: it keeps bold, spacing and lists intact and a match count tells you whether it hit. The `ctrl+h` shortcut may not open it, the menu search shortcut (`alt+/`, then type the menu item name) does. Verify the dialog is open and focused before typing into it, otherwise the text goes into the document.
+- The browser window sometimes reports a smaller usable area than the screenshot suggests, so clicks land about 1.5 times further out than they look. Test one click on a harmless button before relying on coordinates, and close the "signed in as" account notice if it blocks the top bar.
+- Don't click on the page's top margin: that opens the header for editing and a stray keystroke lands there. Check the headers and footers against the original in the audit.
 
 ## When the document is a thesis-style deliverable
 
