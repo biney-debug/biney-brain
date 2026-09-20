@@ -52,6 +52,7 @@ A router (`biney-brain`) plus one domain per type of decision:
 - `biney-brain-delegate`: how much you hand off to the AI, including running full auto mode without babysitting every step, and the two things that mean stop and look
 - `biney-brain-model`: which Claude model to run a task on, Sonnet 5 by default, Opus 5 for design work, Fable 5 not needed so far
 - `biney-brain-ai-usage`: what to do when the output comes out generic (find the skill that already solves it), and how to keep the session from auto-compressing on you
+- `biney-brain-docs`: filling in and auditing a document in Google Docs by editing the **live** Doc in your own signed-in browser (needs `claude-in-chrome` connected and you already logged in, otherwise it says what's missing), copying the format of the finished sections and auditing the saved export until every check passes. Has its own section for thesis-style template documents
 
 Each one is a `SKILL.md`, concrete judgment, not pure theory. Don't need a domain, delete it. Missing one, add it the same way as the rest.
 
@@ -78,7 +79,7 @@ biney-brain doesn't do any of this by itself, it routes to skills that do. Most 
 If biney-brain tries to hand a case to one of these and you don't have it, it says so instead of faking the criteria. Once more than one comes up missing in the same session, it stops surfacing gaps one at a time and offers this whole list.
 
 - `playwright-cli`: scripted browser automation and real Playwright test runs, default for verifying a UI/frontend change works.
-- `claude-in-chrome`: drives the user's actual logged-in Chrome, only when the check needs their real session or it's a live interactive moment.
+- `claude-in-chrome`: drives the user's actual logged-in Chrome, only when the check needs their real session or it's a live interactive moment, and for editing a live Google Doc (`biney-brain-docs`), which only works with the Doc open in a browser where you're already signed in.
 
 Stack-specific technical skills (Spring Boot, PostgreSQL, Angular, Power BI) aren't part of this universal starter pack, only install the ones matching your actual stack, see `biney-brain-stack`'s table.
 

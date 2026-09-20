@@ -43,6 +43,13 @@ Case comes in
     │           check needs the user's real logged-in browser session, or it's
     │           a live interactive moment, not a repeatable one.
     │
+    ├── Filling in, editing, or auditing a document that lives in Google
+    │   Docs (report, spec, template-based deliverable, thesis chapter)?
+    │     └──→ `biney-brain-docs`. Needs the Doc live in the user's own
+    │           signed-in browser via `claude-in-chrome`, edited in place, not
+    │           a copy. If that isn't available, say which piece is missing
+    │           before starting. The `humanizer` rule below still applies.
+    │
     ├── Generating a document, report, README, or any other written
     │   deliverable (not code) — OR the user hands you one they already
     │   wrote/AI-assisted and asks to humanize it or cut its AI-detection
@@ -75,7 +82,7 @@ Everything Step 1 can delegate to. Most people who install biney-brain install n
 - `agent-skills` (github: addyosmani/agent-skills): one plugin, not five separate installs, bundles `spec-driven-development`, `planning-and-task-breakdown`, `code-review-and-quality`, `frontend-ui-engineering`, and `security-and-hardening` among others. If any of those come up missing, recommend this one plugin, not each skill individually.
 
 - `playwright-cli`: scripted browser automation and real Playwright test runs, default for verifying a UI/frontend change works.
-- `claude-in-chrome`: drives the user's actual logged-in Chrome, only when the check needs their real session or it's a live interactive moment.
+- `claude-in-chrome`: drives the user's actual logged-in Chrome, only when the check needs their real session or it's a live interactive moment. Editing a live Google Doc (`biney-brain-docs`) is the other case where it's the right tool: the point is the Doc that's already open and signed in.
 
 (`agent-skills` also ships `browser-testing-with-devtools`, that needs a separate Chrome DevTools MCP server, not a live third option unless that MCP is actually configured, don't confuse it with either of the two above.)
 
@@ -108,6 +115,9 @@ Context judgment
     │   permission/options before moving forward? ─────→ `biney-brain-delegate`
     │
     ├── Which Claude model to run this on? ─────────────→ `biney-brain-model`
+    │
+    ├── Fill in or audit a document in Google Docs (live Doc,
+    │   signed-in browser, checks until they pass)? ────→ `biney-brain-docs`
     │
     └── Output coming out generic (design, security,
         code), or the session getting long/messy? ─────→ `biney-brain-ai-usage`
