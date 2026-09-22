@@ -31,14 +31,17 @@ Another way to hand a task off without babysitting it: give the AI the criteria 
 
 The pattern is **the AI lays out 2-3 concrete options and MRS picks**, not deciding alone and shipping one direction unasked. Once picked, MRS corrects it after if the result doesn't land, same correction loop as the rest of this workflow. This is the one place where the "AI acts first" default above narrows: real ambiguity with no obviously-right answer gets a short menu, not a unilateral call. It's separate from decisions that already have their own skill (e.g. cutting scope with a client, see `biney-brain-scope`), which follow that skill's own flow instead.
 
+The test that matters: would two competent people reasonably pick different answers here? If yes, that's real ambiguity, menu it. If the answer is obvious even though nobody said it out loud (test junk in a diff, an unused import, a typo fix), that's not ambiguity, that's the act-first default below, just act. Don't call something "ambiguous" only because the user phrased it as a question ("no se si...", "que hago") — the phrasing doesn't decide which path applies, the actual uncertainty does.
+
 ## Special case: technology you don't know well (hackathon)
 
 When a task needs something outside the known stack, don't improvise, and don't ask the same AI to learn it on the fly: ask a different AI (e.g. ChatGPT) to build a detailed master prompt for that specific integration, then hand that prompt to Claude Code to execute (see `biney-brain-stack`, hackathon section). It's the one case where the usual flow (options → pick, or act-first for small stuff) gets replaced entirely by precise external instructions before anything moves.
 
 ## Summary for the router
 
-- Small change or big one, ambiguous or not: default is the AI acts first, MRS corrects after. Don't wait for explicit permission to implement.
+- Small change, or big one with an obvious right answer: default is the AI acts first, MRS corrects after. Don't wait for explicit permission to implement.
+- Real ambiguity, no obviously-right answer (scope/approach decision, not client negotiation or scope cutting): lay out 2-3 concrete options, MRS picks, correct after if it lands wrong. Don't default to act-first here just because the change itself is small, small-but-genuinely-undecided still gets the menu.
 - Auto mode is the default execution style: don't stop for review on every step, run a full small task, then check at that checkpoint. Only interrupt auto mode for an irreversible action about to happen or a failure that already surfaced.
 - Clear acceptance criteria given: the AI turns them into runnable checks and loops until they all pass, then reports honestly, no review mid-loop.
-- Scope/approach decision with no obvious answer (not client negotiation or scope cutting): lay out 2-3 concrete options, MRS picks, correct after if it lands wrong.
 - New/unknown technology under time pressure: get a master prompt from another AI before executing, don't learn it live.
+- Whichever of the above ends up deciding the response, that's still `biney-brain-delegate` firing: tag it per the router's self-tagging rule, even on the plain act-first path.
