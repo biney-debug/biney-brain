@@ -14,6 +14,27 @@ Options:
 - `--model <name>` (default `haiku`, cheapest that still exercises Skill invocation)
 - `--case <id>` to run a single case from `router-cases.json`
 
+## Numbers
+
+The honest measurement is a real agent doing real work: `claude -p` calls
+against the actual installed router, isolated to just this plugin, scored
+on whether the correct `biney-brain-*` domain self-tags. 14 cases, one full
+run per model, clean working tree, no cherry-picking.
+
+| model | passed | rate | cost |
+|---|--:|--:|--:|
+| Haiku | 11/14 | 79% | $0.3255 |
+| Sonnet | 12/14 | 86% | $1.1129 |
+
+Of the failures, 2/3 per model aren't router bugs: a known gray zone
+(`scope-personal-backlog`, multiple domains are valid) and a harness
+limitation (`router-plain-code-no-domain` expects a hand-off to `ponytail`,
+which the isolated `--plugin-dir` never loads). The one real, reproducible
+gap: `biney-brain-docs` gives the right answer but doesn't always self-tag
+when it's blocked on a missing prerequisite rather than actively applying
+its rule. Full per-case table and method:
+[benchmarks/results/2026-09-22-router-self-tagging.md](results/2026-09-22-router-self-tagging.md).
+
 ## Cost
 
 Each case is a real `claude -p` call, billed like normal usage. The script
