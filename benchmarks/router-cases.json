@@ -38,5 +38,77 @@
     "expectPatterns": [],
     "rejectPatterns": ["biney-brain-"],
     "notes": "Negative control: trivial unrelated question, no biney-brain-* domain should fire or tag."
+  },
+  {
+    "id": "ai-usage-generic-output",
+    "prompt": "Llevo varios intentos pidiéndole a la IA que mejore el diseño de una landing page y el resultado sigue saliendo genérico, tipo hecho por IA. Ya reformulé el prompt tres veces y sigue igual. Qué hago?",
+    "expectTag": "biney-brain-ai-usage",
+    "expectPatterns": ["ui-ux-pro-max"],
+    "rejectPatterns": [],
+    "notes": "Regla 'chequear roster de Step 1 antes de find-skills': output generico de UI -> ui-ux-pro-max/frontend-ui-engineering, no salto directo a find-skills ni mas prompt-fighting manual."
+  },
+  {
+    "id": "continuity-session-close",
+    "prompt": "Terminé de implementar el login y los tests ya pasan. Quiero cerrar la sesión de Claude Code antes de hacer /clear. Qué hago con el estado del proyecto para no perder contexto en la próxima sesión?",
+    "expectTag": "biney-brain-continuity",
+    "expectPatterns": ["STATE\\.md"],
+    "rejectPatterns": [],
+    "notes": "Regla de checkpoint antes de /clear: consolidar en plantilla fija .biney-brain/STATE.md (sobreescribir, no NOTES.md ad-hoc). Trigger documentado: tarea recien cerrada."
+  },
+  {
+    "id": "docs-missing-prerequisite",
+    "prompt": "Necesito que llenes la sección 'Resultados' de mi tesis directamente en el Google Doc, usando los datos que ya te pasé antes en este chat.",
+    "expectTag": "biney-brain-docs",
+    "expectPatterns": ["claude-in-chrome", "sesi[oó]n"],
+    "rejectPatterns": ["ya (lo )?(edité|actualic[eé]|complet[eé]) (el|tu) documento"],
+    "notes": "Requisito duro: claude-in-chrome conectado + sesion ya logueada en la cuenta del doc, editado en vivo, nunca copia. Prompt no lo da, respuesta correcta nombra lo faltante antes de arrancar."
+  },
+  {
+    "id": "model-default-sonnet",
+    "prompt": "Voy a implementar una feature de backend bastante importante para mi proyecto, nada de diseño visual involucrado. Como es importante, debería cambiar a Opus 5 para que el resultado salga mejor?",
+    "expectTag": "biney-brain-model",
+    "expectPatterns": ["Sonnet 5"],
+    "rejectPatterns": [],
+    "notes": "Trigger de Opus 5 es diseño especifico, no dificultad de la tarea: backend importante sin diseño se queda en Sonnet 5 esfuerzo alto. rejectPatterns original (\"cambia(r)? a Opus 5\") se retiro: era ciego a negacion y matcheaba la respuesta correcta cuando decia algo como 'no cambies a Opus 5'; expectTag+expectPatterns ya bastan para verificar la respuesta correcta."
+  },
+  {
+    "id": "security-production-review",
+    "prompt": "Estoy por lanzar a producción real un backend que maneja datos de usuarios reales, sin nadie más revisando el código. Antes de publicarlo, reviso todo el código línea por línea yo mismo para asegurarme de que está seguro?",
+    "expectTag": "biney-brain-security",
+    "expectPatterns": ["rate limit", "(security-and-hardening|/security-review)"],
+    "rejectPatterns": [],
+    "notes": "Tier produccion: rate limiting + prevencion de fuga de datos son los no-negociables (no checklist OWASP completo), mas regla de delegacion: nunca revision manual linea por linea. rejectPatterns original era ciego a negacion (matcheaba 'revisar linea por linea' incluso dentro de 'no revises linea por linea, delega'), se retiro por el mismo motivo que model-default-sonnet."
+  },
+  {
+    "id": "stack-hackathon-new-tech",
+    "prompt": "Estoy en un hackathon de 24 horas armando el MVP y quiero meter una librería de IA que nunca usé antes para que la demo se vea más impresionante. La integro directo en el código principal mientras avanzo?",
+    "expectTag": null,
+    "expectPatterns": ["`biney-brain-(stack|scope)`"],
+    "rejectPatterns": ["intégra(la|lo) directo en el (código|flujo) principal"],
+    "notes": "Zona gris real, confirmada 2/2 (haiku y sonnet): ambos modelos rutearon a biney-brain-scope (prioridad de que funcione lo prometido) en vez de biney-brain-stack (regla de master prompt para tech nueva), consistente en ambas corridas. Se ajusto expectTag/expectPatterns para aceptar cualquiera de los dos como valido en vez de forzar stack. La mencion a 'master prompt' se retiro de expectPatterns (dejo de ser un requisito duro), revisar manualmente si aparece."
+  },
+  {
+    "id": "tests-personal-project-status",
+    "prompt": "Tengo un proyecto personal sin deadline ni cliente detrás, ya tiene bastantes features implementadas. Quiero saber el estado real de testing del proyecto. Debería sentarme a escribir yo mismo los tests uno por uno para asegurarme?",
+    "expectTag": "biney-brain-tests",
+    "expectPatterns": ["(honesto|porcentual)"],
+    "rejectPatterns": ["escrib(e|ir|iendo) (todos )?los tests (a mano|uno por uno) tú mismo"],
+    "notes": "Tests se delegan, no se escriben a mano: pedir a ponytail/agent-skills auditar+testear+corregir y devolver reporte honesto porcentual, no sentarse a escribirlos."
+  },
+  {
+    "id": "router-plain-code-no-domain",
+    "prompt": "Quiero escribir un endpoint REST simple para mi proyecto, sin complicarlo. Qué hago?",
+    "expectTag": null,
+    "expectPatterns": ["ponytail"],
+    "rejectPatterns": ["`biney-brain-(stack|personal|scope|security|tests|git|delegate|model|docs|ai-usage|continuity)`"],
+    "notes": "Ejemplo propio del router: codigo simple va a ponytail, no dispara ningun dominio Step 2. Regression test del split Step 1/Step 2."
+  },
+  {
+    "id": "delegate-pricing-model-ambiguity",
+    "prompt": "Estoy construyendo un proyecto personal que en algún momento quiero vender como servicio. No sé si cobrar con un plan de suscripción mensual o con un pago único de por vida, ambos modelos tienen sentido para este tipo de producto. Qué hago?",
+    "expectTag": null,
+    "expectPatterns": ["suscripci[oó]n"],
+    "rejectPatterns": [],
+    "notes": "Segundo intento documentado de forzar un caso limpio de biney-brain-delegate (el primero fue la zona gris scope/delegate/personal). Fallo 2/2 (haiku y sonnet): ninguno de los dos autotageo `biney-brain-delegate`; Sonnet incluso dijo explicito 'no encaja en ningun dominio de biney-brain... te doy mi opinion directa, no un routing'. Hallazgo real, no bug de test: pricing/monetizacion parece quedar fuera del scope que delegate reclama para si, no solo competencia con otro dominio. expectTag se puso null (exploratorio) para no marcar como fallo algo que ya se investigo. Pendiente para el usuario: decidir si esto amerita ampliar el SKILL.md de delegate o si simplemente no es su dominio."
   }
 ]
