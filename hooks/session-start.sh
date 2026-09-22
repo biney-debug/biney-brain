@@ -9,3 +9,9 @@ SKILL="$DIR/../skills/biney-brain/SKILL.md"
 
 printf 'biney-brain loaded. Before deciding stack, scope, security, tests, git, or how much to delegate to the AI, check whether a biney-brain-* domain applies.\n\n'
 awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2{print}' "$SKILL"
+
+STATE_FILE="$PWD/.biney-brain/STATE.md"
+if [ -f "$STATE_FILE" ]; then
+  printf '\n---\n\nProject state found (%s) — verify against git/tests before trusting it, it may be stale:\n\n' "$STATE_FILE"
+  cat "$STATE_FILE"
+fi
