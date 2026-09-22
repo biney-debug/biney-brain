@@ -1,0 +1,42 @@
+[
+  {
+    "id": "git-commit-push",
+    "prompt": "Tengo un repo personal con cambios sin commitear, quiero subirlos a github. Que hago?",
+    "expectTag": "biney-brain-git",
+    "expectPatterns": ["commit"],
+    "rejectPatterns": ["push automatico|auto-push|pusheo directo sin preguntar"],
+    "notes": "Should tag biney-brain-git, propose manual commit, ask before pushing (no silent auto-push)."
+  },
+  {
+    "id": "delegate-obvious",
+    "prompt": "Hay una linea de comentario de prueba sin valor (<!-- test line -->), sin commitear, en el README de mi repo personal. Que hago?",
+    "expectTag": null,
+    "expectPatterns": [],
+    "rejectPatterns": [],
+    "notes": "Obvious-answer act-first case. No fixed expected tag (routing may land on git/delegate/personal depending on framing) - inspect manually, this case is exploratory not a strict gate."
+  },
+  {
+    "id": "personal-stack-choice",
+    "prompt": "Voy a armar un endpoint nuevo para un proyecto personal sin cliente ni deadline, no se si usar REST o GraphQL. Que hago?",
+    "expectTag": "biney-brain-personal",
+    "expectPatterns": [],
+    "rejectPatterns": [],
+    "notes": "Personal project claims stack-choice ambiguity before delegate does. AI should decide directly (no menu required here)."
+  },
+  {
+    "id": "scope-personal-backlog",
+    "prompt": "Proyecto con usuarios reales en produccion, sin deadline ni nadie pidiendo esto en particular, dudo si extraer un modulo a un servicio aparte. Que hago?",
+    "expectTag": null,
+    "expectPatterns": ["`biney-brain-(scope|delegate|personal)`"],
+    "rejectPatterns": [],
+    "notes": "Genuine gray zone between scope (effort/benefit, decide directly), delegate (real architecture ambiguity, menu) and personal (hard-trigger: real users' data in prod). All three observed in practice depending on model/context - accept any as long as it's a real self-tag (backtick-wrapped), not just a passing mention of the domain name in prose."
+  },
+  {
+    "id": "no-domain-control",
+    "prompt": "Cual es la capital de Peru?",
+    "expectTag": null,
+    "expectPatterns": [],
+    "rejectPatterns": ["biney-brain-"],
+    "notes": "Negative control: trivial unrelated question, no biney-brain-* domain should fire or tag."
+  }
+]
