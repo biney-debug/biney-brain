@@ -128,7 +128,7 @@ Context judgment
 
 ## How to respond
 
-When invoked with `/biney-brain <situation>`:
+### Asked directly (`/biney-brain <situation>`)
 
 1. Classify the case per Step 1.
 2. If it delegates to an external skill, say so explicitly: "this is a case for `<skill>`, invoke it."
@@ -138,3 +138,9 @@ When invoked with `/biney-brain <situation>`:
 6. The document/`humanizer` branch is the one exception to "just point at the skill": run it yourself before delivering the document, don't stop at recommending it.
 7. Before delegating to any skill in Step 1, check whether you actually have it loaded. If you don't, say so instead of quietly improvising without it, then name it and point at `find-skills` (or the exact skill name) to get it. Don't fake the specialized criteria you don't have.
 8. If more than one Step 1 skill turns out missing in the same session, that's a sign this is a fresh biney-brain install with nothing else set up yet. Stop surfacing gaps one at a time: list the full Skill roster in one shot and offer to help install what's missing, so the user doesn't rediscover each hole task by task.
+
+### Firing on its own, mid-task
+
+The router auto-invokes without anyone typing `/biney-brain`, that's the whole point, see the README section on it. But silent doesn't mean invisible: whenever a Step 2 domain is what actually decides the response, say so, one line, before continuing: `` `biney-brain-<domain>`: <the call, a few words>. `` (e.g. `` `biney-brain-git`: commit manual, no auto. ``). Don't write the 2-4 line explanation from the explicit-ask rules above, that's for when someone actually asked, here it's just the attribution so the judgment doesn't happen off-screen.
+
+This only applies to Step 2. Step 1 delegations (`ponytail`, `caveman`, and the rest) fire on nearly every response, tagging those every time would bury the actual work in noise, exactly what `caveman` exists to prevent.

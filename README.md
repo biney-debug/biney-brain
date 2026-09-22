@@ -8,19 +8,23 @@
   <em>It's not that I know more. I've just already screwed this up before.</em>
 </p>
 
+<p align="center">
+  <a href="https://github.com/biney-debug/biney-brain/blob/master/LICENSE"><img src="https://img.shields.io/github/license/biney-debug/biney-brain" alt="MIT license"></a>
+  <a href="https://github.com/biney-debug/biney-brain/stargazers"><img src="https://img.shields.io/github/stars/biney-debug/biney-brain?style=flat" alt="GitHub stars"></a>
+</p>
+
 ---
 
-Tired of being the guy who can't get real value out of Claude Code? Installed four skills, still don't know which one to use, when, or why, and end up asking the AI everything with last-minute-exam judgment?
+Installed `ponytail`, `caveman`, `security-and-hardening`, and still catch Claude Code making calls that aren't its to make: what stack for a 30-hour hackathon, how much security is actually enough here, whether this is the moment to commit? Those aren't code problems. No skill fixes them mid-task, because none of them were built to.
 
-Relax. Here's another screwup, but with more mileage: exams solved by repeating the pattern that already worked, hackathons done in a rush, and a thesis I'm working through right now, already forcing me to figure out what actually needs to be shown instead of what just feels like good work. That's where this judgment came from, the kind I don't have to rebuild from scratch every time.
+biney-brain is that missing judgment, packaged: exams solved by repeating the pattern that already worked, hackathons shipped in a rush, a thesis I'm working through right now that's forcing real answers instead of "feels right." Describe the situation, and it tells you whether an installed skill already covers it, or hands you the call directly when none of them do.
 
-biney-brain packages that judgment as a router: you describe the situation, and it tells you whether an installed skill already solves it (`ponytail` so you don't write more code than needed, `caveman` so you don't say more than needed, `security-and-hardening` so you don't leak data, `ui-ux-pro-max` so it doesn't look like a school project, `humanizer` so a document doesn't read like it came out of a chatbot) or whether it's a context call that no code skill covers, in which case it applies judgment that's already been chewed on.
+```
+/plugin marketplace add biney-debug/biney-brain
+/plugin install biney-brain
+```
 
-It doesn't solve everything. It doesn't make you smarter. It just keeps you from reinventing the wheel on every decision someone (me, in this case) already screwed up before you did.
-
-Most people install biney-brain first and nothing else. It knows that: if it tries to hand a case off to a skill you don't have, it says so instead of faking the criteria, and offers the full starter pack (see Skill roster below) instead of making you find each gap task by task.
-
-If `ponytail` is the senior who doesn't write more code than needed, biney-brain is the guy who doesn't overthink how he uses the AI: if the output comes out generic (a design that screams "made by AI," code with no security thought behind it), you don't keep fighting the prompt, you check whether the skill roster already covers it (`ui-ux-pro-max` for design, `security-and-hardening` for security) before reaching for `find-skills` (or TikTok/YouTube if that turns up nothing); if the task is big, you cut it into small pieces with a context `.md` before the session falls apart on its own.
+That's the whole install. Full steps, Codex CLI included, are further down.
 
 ## Before / after
 
@@ -64,6 +68,8 @@ The router loads on its own when you open a new session: a `SessionStart` hook (
 In practice: you paste a master prompt `.md` straight in, no `/biney-brain` in front, and Claude still checks whether the case qualifies (steps 1 and 2 of the router) and decides on its own whether to invoke `biney-brain-stack`, `biney-brain-scope`, etc. It's the same mechanism any skill uses to auto-invoke when its description matches the case, nothing exclusive to biney-brain.
 
 `/biney-brain <situation>` still works, but it's there to force the question explicitly ("tell me which domain this falls under") when you want the router's answer directly, not a requirement for the judgment to apply.
+
+Silent doesn't mean invisible, though: whenever a Step 2 domain (the personal-judgment ones, not `ponytail`/`caveman`/etc.) is what actually decides the response, it tags itself, one short line before continuing: `` `biney-brain-git`: commit manual, no auto. `` You see the call get made, not just the result.
 
 ## Skill roster
 
