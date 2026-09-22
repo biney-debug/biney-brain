@@ -7,7 +7,7 @@ SKILL="$DIR/../skills/biney-brain/SKILL.md"
 
 [ -f "$SKILL" ] || exit 0
 
-printf 'biney-brain loaded. Before deciding stack, scope, security, tests, git, or how much to delegate to the AI, check whether a biney-brain-* domain applies.\n\n'
+printf 'biney-brain loaded. Before deciding stack, scope, security, tests, git, documents, or how much to delegate to the AI, check whether a biney-brain-* domain applies.\n\n'
 awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2{print}' "$SKILL"
 
 STATE_FILE="$PWD/.biney-brain/STATE.md"

@@ -23,17 +23,22 @@ Two things override auto mode and mean stop, look closely, before it happens:
 
 Outside those two triggers, keep going. This is the actual point of biney-brain existing: it's not there to make you review more, it's there so you know which moments are worth stopping for and which ones aren't, so auto mode is something you can trust instead of something that makes you anxious.
 
+## Acceptance criteria: "don't stop until every check passes"
+
+Another way to hand a task off without babysitting it: give the AI the criteria and let it loop. The AI turns them into checks it can run, runs them, fixes what fails, and runs them again until all pass, then reports what it verified and what it couldn't. That's a full task with its own checkpoint at the end, so it doesn't need a review on every step, and the same two stops apply (irreversible action, failure already visible). If one check turns out to be wrong, the AI fixes the check and says so, it doesn't count it as passed. Worked example with a live Google Doc in `biney-brain-docs`.
+
 ## Ambiguous decisions (scope, technical approach with no obvious answer)
 
-Don't default to "give me options and I'll decide." The pattern is **the AI decides and proposes a concrete direction**, and MRS steps in only if the result doesn't land. Asking for permission or laying out multiple alternatives before moving forward isn't the preferred flow, except when the decision is one that already has its own skill (e.g. cutting scope with a client, see `biney-brain-scope`), where a more cautious approach does apply.
+The pattern is **the AI lays out 2-3 concrete options and MRS picks**, not deciding alone and shipping one direction unasked. Once picked, MRS corrects it after if the result doesn't land, same correction loop as the rest of this workflow. This is the one place where the "AI acts first" default above narrows: real ambiguity with no obviously-right answer gets a short menu, not a unilateral call. It's separate from decisions that already have their own skill (e.g. cutting scope with a client, see `biney-brain-scope`), which follow that skill's own flow instead.
 
 ## Special case: technology you don't know well (hackathon)
 
-When a task needs something outside the known stack, don't improvise, and don't ask the same AI to learn it on the fly: ask a different AI (e.g. ChatGPT) to build a detailed master prompt for that specific integration, then hand that prompt to Claude Code to execute (see `biney-brain-stack`, hackathon section). It's the only situation where the main AI's "decide and propose" gets narrowed by more precise external instructions before moving forward.
+When a task needs something outside the known stack, don't improvise, and don't ask the same AI to learn it on the fly: ask a different AI (e.g. ChatGPT) to build a detailed master prompt for that specific integration, then hand that prompt to Claude Code to execute (see `biney-brain-stack`, hackathon section). It's the one case where the usual flow (options → pick, or act-first for small stuff) gets replaced entirely by precise external instructions before anything moves.
 
 ## Summary for the router
 
 - Small change or big one, ambiguous or not: default is the AI acts first, MRS corrects after. Don't wait for explicit permission to implement.
 - Auto mode is the default execution style: don't stop for review on every step, run a full small task, then check at that checkpoint. Only interrupt auto mode for an irreversible action about to happen or a failure that already surfaced.
-- Scope/approach decision with no obvious answer (not client negotiation or scope cutting): propose one concrete direction, not a list to choose from.
+- Clear acceptance criteria given: the AI turns them into runnable checks and loops until they all pass, then reports honestly, no review mid-loop.
+- Scope/approach decision with no obvious answer (not client negotiation or scope cutting): lay out 2-3 concrete options, MRS picks, correct after if it lands wrong.
 - New/unknown technology under time pressure: get a master prompt from another AI before executing, don't learn it live.
