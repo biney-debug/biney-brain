@@ -20,13 +20,11 @@ What this actually prevents is the perfectionism of fighting the prompt: if the 
 A long, messy session ends up auto-compressing itself and losing detail. Avoiding that comes down to two things:
 
 1. **Split the work into small tasks.** Don't throw the AI one giant request expecting it to solve the whole project in one shot. Cut it into verifiable steps, each one small, so the session doesn't have to carry a huge history for one monster task.
-2. **Use `.md` files for context**, combining two approaches:
-   - A persistent context file in the repo (something like `NOTES.md` or `CONTEXT.md`) that you hand the AI at the start, instead of re-explaining everything out loud every new session.
-   - Ask for intermediate markdown summaries before the session gets long, instead of letting the history grow on its own and hoping auto-compression "guesses" what matters.
+2. **Persist project state between sessions properly**, not with an ad-hoc `NOTES.md`. See `biney-brain-continuity` for the fixed template, what belongs in it, and how it gets loaded and verified automatically.
 
-In practice: if a task looks big, don't start it all at once, cut it into small steps with a `.md` in between so context doesn't get lost along the way.
+In practice: if a task looks big, don't start it all at once, cut it into small steps, and let `biney-brain-continuity` carry what needs to survive past `/clear`.
 
 ## Summary for the router
 
 - Output comes out generic (design, security, code) → try `find-skills` first, and if it finds nothing, only then search TikTok/YouTube, before continuing to fight the prompt.
-- Long session or big task → split it into small tasks, and use a context `.md` (persistent in the repo + intermediate summaries) instead of trusting the history to hold up.
+- Long session or big task → split it into small tasks; for carrying state across `/clear`, that's `biney-brain-continuity`, not a hand-rolled context file.

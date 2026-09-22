@@ -86,8 +86,11 @@ Context judgment
     │
     ├── Which Claude model to run this on? ─────────────→ `biney-brain-model`
     │
-    └── Output coming out generic (design, security,
-        code), or the session getting long/messy? ─────→ `biney-brain-ai-usage`
+    ├── Output coming out generic (design, security,
+    │   code), or the session getting long/messy? ─────→ `biney-brain-ai-usage`
+    │
+    └── Closing a task before /clear, or opening a new
+        session on a project with work in progress? ────→ `biney-brain-continuity`
 ```
 
 ## How to respond
