@@ -43,6 +43,34 @@ With biney-brain:
 
 No 3am argument about hexagonal architecture. No Kafka in a 30-hour MVP.
 
+## Numbers
+
+The honest measurement is a real agent doing real work: the same 14 prompts
+run through `claude -p` twice, once with no plugin loaded and once with
+biney-brain loaded, n=3, Sonnet, scored on whether the answer actually
+contains the specific judgment call (not just a domain self-tag) and whether
+it avoids the flagged wrong/risky phrasing.
+
+<p align="center">
+  <img src="assets/benchmark-arms.svg" width="860" alt="biney-brain vs no-skill baseline across rule-adherence, safety, cost and time (Sonnet, 14 cases, n=3). biney-brain: rule-adherence 93% vs baseline 33%, safety 98% vs 100%, cost $3.50 vs $3.99 total, time 22.0s vs 28.5s avg per call.">
+</p>
+
+| arm | rule-adherence | safety | cost | avg time |
+|---|--:|--:|--:|--:|
+| baseline | 33% (9/27) | 100% (42/42) | $3.9924 | 28487ms |
+| plugin | 93% (25/27) | 98% (41/42) | $3.4966 | 21976ms |
+
+Loading biney-brain nearly triples rule-adherence, while costing and running
+slightly less on average, the skill answer tends to be more direct where the
+bare model hedges or lists options. The one safety dip and the one remaining
+content miss are the same known harness limitation: the isolated test session
+only loads biney-brain, so the one case that expects a hand-off to `ponytail`
+can't succeed cleanly (`ponytail` genuinely isn't installed there). Full
+per-case breakdown, method, and a companion single-arm self-tagging run
+(Sonnet 12/14, Haiku 11/14 on whether the right domain tags itself):
+[benchmarks/results/2026-09-22-arms-comparison.md](benchmarks/results/2026-09-22-arms-comparison.md)
+and [benchmarks/results/2026-09-22-router-self-tagging.md](benchmarks/results/2026-09-22-router-self-tagging.md).
+
 ## How it works
 
 A router (`biney-brain`) plus one domain per type of decision:

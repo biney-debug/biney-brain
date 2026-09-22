@@ -1,0 +1,37 @@
+<svg viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>biney-brain vs no-skill baseline across rule-adherence, safety, cost and time (Sonnet, 14 cases, n=3)</title>
+  <text x="430" y="24" font-size="15" font-weight="600" fill="#8b949e" text-anchor="middle">biney-brain vs no-skill baseline (Sonnet, 14 cases, n=3)</text>
+
+  <rect x="330" y="38" width="12" height="12" rx="2" fill="#8b949e"/><text x="347" y="48" font-size="12" fill="#8b949e">baseline</text>
+  <rect x="430" y="38" width="12" height="12" rx="2" fill="#2da44e"/><text x="447" y="48" font-size="12" fill="#8b949e">biney-brain</text>
+
+  <line x1="70" y1="320" x2="790" y2="320" stroke="#8b949e" stroke-opacity="0.55"/>
+  <line x1="70" y1="90" x2="790" y2="90" stroke="#8b949e" stroke-opacity="0.35" stroke-dasharray="4 4"/>
+
+  <!-- rule-adherence: 0-100% scale -->
+  <rect x="90" y="244" width="46" height="76" rx="2" fill="#8b949e"/><text x="113" y="238" font-size="11" fill="#8b949e" text-anchor="middle">33%</text>
+  <rect x="150" y="106" width="46" height="214" rx="2" fill="#2da44e"/><text x="173" y="100" font-size="11" font-weight="600" fill="#2da44e" text-anchor="middle">93%</text>
+  <text x="163" y="340" font-size="13" fill="#8b949e" text-anchor="middle">rule-adherence</text>
+  <text x="163" y="355" font-size="10" fill="#8b949e" opacity="0.8" text-anchor="middle">higher is better · 27 checks</text>
+
+  <!-- safety: 0-100% scale -->
+  <rect x="270" y="90" width="46" height="230" rx="2" fill="#8b949e"/><text x="293" y="84" font-size="11" fill="#8b949e" text-anchor="middle">100%</text>
+  <rect x="330" y="95" width="46" height="225" rx="2" fill="#2da44e"/><text x="353" y="89" font-size="11" font-weight="600" fill="#2da44e" text-anchor="middle">98%</text>
+  <text x="343" y="340" font-size="13" fill="#8b949e" text-anchor="middle">safety</text>
+  <text x="343" y="355" font-size="10" fill="#8b949e" opacity="0.8" text-anchor="middle">higher is better · 42 checks</text>
+
+  <!-- cost: 0-4.5 dollar scale -->
+  <rect x="450" y="116" width="46" height="204" rx="2" fill="#8b949e"/><text x="473" y="110" font-size="11" fill="#8b949e" text-anchor="middle">$3.99</text>
+  <rect x="510" y="141" width="46" height="179" rx="2" fill="#2da44e"/><text x="533" y="135" font-size="11" font-weight="600" fill="#2da44e" text-anchor="middle">$3.50</text>
+  <text x="523" y="340" font-size="13" fill="#8b949e" text-anchor="middle">cost</text>
+  <text x="523" y="355" font-size="10" fill="#8b949e" opacity="0.8" text-anchor="middle">lower is better · total, 42 calls</text>
+
+  <!-- time: 0-32s scale -->
+  <rect x="630" y="115" width="46" height="205" rx="2" fill="#8b949e"/><text x="653" y="109" font-size="11" fill="#8b949e" text-anchor="middle">28.5s</text>
+  <rect x="690" y="162" width="46" height="158" rx="2" fill="#2da44e"/><text x="713" y="156" font-size="11" font-weight="600" fill="#2da44e" text-anchor="middle">22.0s</text>
+  <text x="703" y="340" font-size="13" fill="#8b949e" text-anchor="middle">time</text>
+  <text x="703" y="355" font-size="10" fill="#8b949e" opacity="0.8" text-anchor="middle">lower is better · avg per call</text>
+
+  <line x1="20" y1="368" x2="840" y2="368" stroke="#8b949e" stroke-opacity="0.25"/>
+  <text x="20" y="386" font-size="11" fill="#8b949e" opacity="0.8">Each metric on its own scale (mixed higher-/lower-is-better). biney-brain nearly triples rule-adherence while costing and running slightly less. 1 safety fail is a known harness limitation (ponytail hand-off case, not installed in the isolated test session), not a regression.</text>
+</svg>
